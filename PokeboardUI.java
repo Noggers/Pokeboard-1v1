@@ -23,6 +23,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 /**
  *
  * @author Collin
+ * @author MichaelJ
  */
 public class PokeboardUI extends javax.swing.JFrame {
 
