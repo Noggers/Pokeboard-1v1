@@ -1,0 +1,2 @@
+IMPORTANT NOTE:
+This directory is for storing the image resources needed for the Pokeboard to run correctly. However, we have chosen not to distribute them. As such, this directory is for reference only.

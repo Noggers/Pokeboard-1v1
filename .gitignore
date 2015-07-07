@@ -1,7 +1,7 @@
 *.class
 
 # We hide the image resources we need for the board to load all the images
-src/images/
+src/images/*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
