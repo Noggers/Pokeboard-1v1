@@ -1,5 +1,8 @@
 *.class
 
+# We hide the image resources we need for the board to load all the images
+src/images/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -8,14 +11,14 @@
 *.war
 *.ear
 
-#Net beans properties
-*.properties
-
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/Pokeboard/nbproject/private/
-build.xml
-manifest.mf
 
 #ignore the netbeans project files:
 nbproject/
+/build/
+build.xml
+manifest.mf
+#Net beans properties
+*.properties
+/dist/
