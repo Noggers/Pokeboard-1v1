@@ -1,3 +1,4 @@
+# Java byte-code binaries
 *.class
 
 # We hide the image resources we need for the board to load all the images
@@ -16,9 +17,10 @@ hs_err_pid*
 
 #ignore the netbeans project files:
 nbproject/
+/dist/
 /build/
 build.xml
 manifest.mf
+
 #Net beans properties
 *.properties
-/dist/
