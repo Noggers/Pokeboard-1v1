@@ -12,11 +12,19 @@ import my.pokeboard.Models.*;
 public class CardUI
 {    
     private String iconPath;
+    private String title;
     private CardBase cardModel;
-    protected CardUI(CardBase cardModel, String iconPath)
+    
+    public CardUI(CardBase cardModel, String iconPath, String title)
     {
         this.cardModel = cardModel;
         this.iconPath = iconPath;
+        this.title = title;
+    }
+    
+    public String GetTitle()
+    {
+        return title;
     }
     
     private javax.swing.ImageIcon _Icon;
