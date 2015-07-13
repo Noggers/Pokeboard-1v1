@@ -22,11 +22,17 @@ public class CardUI
         this.title = title;
     }
     
-    public String GetTitle()
+    @Override
+    public String toString()
     {
         return title;
     }
     
+    public String GetTitle()
+    {
+        return title;
+    }
+        
     private javax.swing.ImageIcon _Icon;
     public javax.swing.ImageIcon GetIcon()
     {

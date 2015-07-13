@@ -7,17 +7,10 @@
 package my.pokeboard.Views;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JButton;
-import java.awt.event.KeyEvent;
-import java.awt.*;
-import java.awt.image.*;
-import java.io.*;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
-import javax.imageio.*;
+import my.pokeboard.Views.CardUIs.*;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 
@@ -27,26 +20,19 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
  * @author Collin
  * @author MichaelJ
  */
-public class PokeboardUI extends javax.swing.JFrame {
-
-
-    Color lightPurple = new Color(204,102,255);
-    Color darkPurple = new Color(102,0,102);
-    Color limeGreen = new Color(50,205,50);
-    Color forestGreen = new Color(0,100,0);
-    Color EnergyGreen = new Color(69,150,73);
-    Color EnergyBlue = new Color(25,75,144);
-    Color EnergyPurple = new Color(70,36,69);
-    Color EnergyBrown = new Color(51,41,40);
+public class PokeboardUI extends javax.swing.JFrame
+{
+    private CardUI[] pokemonCards = CardUIFactory.GenerateAllPokemonCards();
+    private CardUI[] stadiumCards = CardUIFactory.GenerateAllStadiumCards();
     
-
-    /**
-     * Creates new form PokeboardUI
-     */
-    public PokeboardUI() {
-        initComponents();
-        setIcon();
-    }
+    private Color lightPurple = new Color(204,102,255);
+    private Color darkPurple = new Color(102,0,102);
+    private Color limeGreen = new Color(50,205,50);
+    private Color forestGreen = new Color(0,100,0);
+    private Color EnergyGreen = new Color(69,150,73);
+    private Color EnergyBlue = new Color(25,75,144);
+    private Color EnergyPurple = new Color(70,36,69);
+    private Color EnergyBrown = new Color(51,41,40);
 
     private int JohtoDamage = 0;
     private int KantoDamage = 0;
@@ -59,17 +45,21 @@ public class PokeboardUI extends javax.swing.JFrame {
     private int JohtoBench2Damage = 0;    
     private int JohtoBench3Damage = 0;
     private int JohtoBench4Damage = 0;
-    private int JohtoBench5Damage = 0;      
+    private int JohtoBench5Damage = 0;
+
+    /**
+     * Creates new form PokeboardUI
+     */
+    public PokeboardUI() {
+        initComponents();
+        setIcon();
+    }
     
-    String[] PokemonList = { " ", "Abra", "Abra (R)", "Abra (Sabrina's)", "Abra (Sabrina's 2)", "Abra (Sabrina's 3)", "Aerodactyl", "Aerodactyl (NR)", "Aipom (NG)", "Aipom (NR)", "Alakazam", "Alakazam (Dark)", "Alakazam (Sabrina's)", "Ampharos (NG)", "Ampharos (NR)", "Ampharos (Dark)", "Arbok", "Arbok (Dark)", "Arbok (Koga's)", "Arcanine", "Arcanine (Blaine's)", "Arcanine (Light)", "Arcanine (Promo)", "Ariados (NG)", "Ariados (Dark)", "Articuno", "Articuno (Promo)", "Articuno (Promo 2)", "Azumarill (NG)", "Azumarill (Light)", "Bayleef (NG)", "Bayleef (NG 2)", "Beedrill", "Beedrill (Koga's)", "Beedrill (ND)", "Bellossom (NG)", "Bellsprout", "Bellsprout (Erika's)", "Bellsprout (Erika's 2)", "Bellsprout (Erika's 3)", "Blastoise", "Blastoise (Dark)", "Blissey (NR)", "Bulbasaur", "Bulbasaur (Erika's)", "Butterfree", "Butterfree (ND)", "Butterfree (SI)", "Caterpie", "Caterpie (ND)", "Celebi (NR)", "Celebi (NR 2)", "Celebi (Shining)", "Chansey", "Chansey (NDe)", "Charizard", "Charizard (Dark)", "Charizard (Blaine's)", "Charizard (Shining)", "Charizard (Premium)", "Charmander", "Charmander (R)", "Charmander (Blaine's)", "Charmander (Blaine's 2)", "Charmeleon", "Charmeleon (Dark)", "Charmeleon (Blaine's)", "Chikorita (NG)", "Chikorita (NG 2)", "Chinchou (NG)", "Chinchou (NR)", "Clefable", "Clefable (Erika's)", "Clefairy", "Clefairy (Erika's)", "Clefairy (Erika's 2)", "Clefairy (NG)", "Cleffa (NG)", "Cleffa (Promo)", "Cloyster", "Cloyster (Misty's)", "Corsola (ND)", "Crobat (NR)", "Crobat (Dark)", "Croconaw (NG)", "Croconaw (NG 2)", "Croconaw (Dark)", "Cubone", "Cyndaquil (NG)", "Cyndaquil (NG 2)", "Cyndaquil (NDe)", "Delibird (NR)", "Dewgong", "Dewgong (Misty's)", "Dewgong (Light)", "Diglett", "Diglett (R)", "Diglett (Brock's)", "Ditto", "Ditto (Koga's)", "Dodrio", "Dodrio (Blaine's)", "Doduo", "Doduo (Blaine's)", "Donphan (NG)", "Donphan (Dark)", "Dragonair", "Dragonair (Dark)", "Dragonair (Erika's)", "Dragonair (Light)", "Dragonite", "Dragonite (Dark)", "Dragonite (Light)", "Dragonite (Promo)", "Dratini", "Dratini (R)", "Dratini (Erika's)", "Dratini (NDe)", "Drowzee", "Drowzee (R)", "Drowzee (Sabrina's)", "Drowzee (Sabrina's 2)", "Dugtrio", "Dugtrio (Dark)", "Dugtrio (Brock's)", "Dunsparce (ND)", "Eevee", "Eevee (R)", "Eevee (Lt. Surge's)", "Eevee (ND)", "Eevee (Promo)", "Ekans", "Ekans (R)", "Ekans (Koga's)", "Electabuzz", "Electabuzz (Lt. Surge's)", "Electabuzz (Lt. Surge's 2)", "Electabuzz (NG)", "Electabuzz (Promo)", "Electabuzz (Promo 2)", "Electrode", "Electrode (Jungle)", "Electrode (Dark)", "Electrode (Lt. Surge's)", "Elekid (NG)", "Entei (NR)", "Entei (NR 2)", "Entei (Promo)", "Espeon (ND)", "Espeon (ND 2)", "Espeon (Dark)", "Exeggcute", "Exeggcute (Erika's)", "Exeggcute (Erika's 2)", "Exeggcute (NDe)", "Exeggutor", "Exeggutor (Erika's)", "Exeggutor (Dark)", "Exeggutor (SI)", "Farfetch'd", "Farfetch'd (NR)", "Fearow", "Fearow (Lt. Surge's)", "Feraligatr (NG)", "Feraligatr (NG 2)", "Feraligatr (Dark)", "Flaaffy (NG)", "Flaaffy (NR)", "Flaaffy (Dark)", "Flareon", "Flareon (Dark)", "Flareon (Light)", "Forretress (ND)", "Forretress (Dark)", "Furret (NG)", "Gastly", "Gastly (Fossil)", "Gastly (Sabrina's)", "Gastly (Sabrina's 2)", "Gastly (Sabrina's 3)", "Gastly (NDe)", "Gengar", "Gengar (Sabrina's)", "Gengar (Sabrina's 2)", "Gengar (Dark)", "Geodude", "Geodude (Brock's)", "Geodude (Brock's 2)", "Geodude (Brock's 3)", "Geodude (NR)", "Girafarig (NG)", "Girafarig (NDe)", "Gligar (NG)", "Gligar (NDe)", "Gloom", "Gloom (Dark)", "Gloom (Erika's)", "Gloom (Erika's 2)", "Gloom (NG)", "Golbat", "Golbat (Dark)", "Golbat (Brock's)", "Golbat (Koga's)", "Golbat (NR)", "Goldeen", "Goldeen (Misty's)", "Goldeen (Misty's 2)", "Goldeen (NR)", "Golduck", "Golduck (Dark)", "Golduck (Misty's)", "Golduck (Sabrina's)", "Golduck (Light)", "Golem", "Golem (Brock's)", "Granbull (NG)", "Graveler", "Graveler (Brock's)", "Graveler (Brock's 2)", "Graveler (NR)", "Grimer", "Grimer (R)", "Grimer (Koga's)", "Growlithe", "Growlithe (Blaine's)", "Growlithe (Blaine's 2)", "Growlithe (Blaine's 3)", "Growlithe (NDe)", "Gyarados", "Gyarados (Dark)", "Gyarados (Giovanni's)", "Gyarados (Misty's)", "Gyarados (Shining)", "Haunter", "Haunter (Fossil)", "Haunter (Sabrina's)", "Haunter (Sabrina's 2)", "Haunter (Dark)", "Heracross (NG)", "Heracross (NDe)", "Hitmonchan", "Hitmonchan (Rocket's)", "Hitmonchan (NDe)", "Hitmonlee", "Hitmonlee (NDe)", "Hitmontop (ND)", "Hitmontop (Promo)", "Ho-Oh (NR)", "Ho-Oh (NR 2)", "Hoothoot (NG)", "Hoppip (NG)", "Hoppip (ND)", "Horsea", "Horsea (Misty's)", "Horsea (Misty's 2)", "Horsea (NG)", "Houndoom (ND)", "Houndoom (NR)", "Houndoom (Dark)", "Houndour (ND)", "Houndour (ND 2)", "Houndour (NDe)", "Hypno", "Hypno (Dark)", "Hypno (Sabrina's)", "Igglybuff (ND)", "Igglybuff (Promo)", "Ivysaur", "Ivysaur (Erika's)", "Ivysaur (SI)", "Jigglypuff", "Jigglypuff (Erika's)", "Jigglypuff (NDe)", "Jigglypuff (Promo)", "Jigglypuff (SI)", "Jolteon", "Jolteon (Dark)", "Jolteon (Lt. Surge's)", "Jolteon (Light)", "Jumpluff (NG)", "Jumpluff (NR)", "Jynx", "Jynx (Sabrina's)", "Jynx (Sabrina's 2)", "Jynx (NR)", "Kabuto", "Kabuto (ND)", "Kabutops", "Kabutops (ND)", "Kabutops (Shining)", "Kadabra", "Kadabra (Dark)", "Kadabra (Sabrina's)", "Kakuna", "Kakuna (Koga's)", "Kakuna (ND)", "Kangaskhan", "Kangaskhan (Blaine's)", "Kingdra (NG)", "Kingdra (NR)", "Kingler", "Koffing", "Koffing (R)", "Koffing (Koga's)", "Koffing (Koga's 2)", "Krabby", "Lanturn (NG)", "Lanturn (NR)", "Lanturn (Light)", "Lapras", "Lapras (SI)", "Larvitar (ND)", "Larvitar (NDe)", "Ledian (NG)", "Ledian (Light)", "Ledyba (NG)", "Ledyba (NDe)", "Ledyba (SI)", "Lickitung", "Lickitung (Brock's)", "Lickitung (SI)", "Lugia (NG)", "Lugia (NR)", "Machamp", "Machamp (Dark)", "Machamp (Giovanni's)", "Machamp (Light)", "Machamp (Promo)", "Machoke", "Machoke (Dark)", "Machoke (Giovanni's)", "Machoke (Light)", "Machop", "Machop (R)", "Machop (Giovanni's)", "Machop (NDe)", "Magby (NG)", "Magcargo (NR)", "Magcargo (Dark)", "Magikarp", "Magikarp (R)", "Magikarp (Giovanni's)", "Magikarp (Misty's)", "Magikarp (Shining)", "Magmar", "Magmar (Fossil)", "Magmar (Blaine's)", "Magmar (NG)", "Magmar (Promo)", "Magnemite", "Magnemite (R)", "Magnemite (Lt. Surge's)", "Magnemite (Lt. Surge's 2)", "Magnemite (ND)", "Magneton", "Magneton (Fossil)", "Magneton (Dark)", "Magneton (Lt. Surge's)", "Magneton (NR)", "Mankey", "Mankey (R)", "Mankey (Brock's)", "Mankey (Brock's 2)", "Mankey (Blaine's)", "Mantine (NG)", "Mantine (NDe)", "Mareep (NG)", "Mareep (ND)", "Mareep (NDe)", "Marill (NG)", "Marill (Promo)", "Marill (SI)", "Marowak", "Meganium (NG)", "Meganium (NG 2)", "Meowth", "Meowth (R)", "Meowth (Giovanni's)", "Meowth (Giovanni's 2)", "Meowth (Promo)", "Meowth (Team Rocket's)", "Metapod", "Metapod (ND)", "Mew (Promo)", "Mew (Promo 2)", "Mew (SI)", "Mew (Ancient)", "Mewtwo", "Mewtwo (Rocket's)", "Mewtwo (Shining)", "Mewtwo (Promo)", "Mewtwo (Promo 2)", "Miltank (NG)", "Misdreavus (NR)", "Misdreavus (Promo)", "Moltres", "Moltres (Blaine's)", "Moltres (Rocket's)", "Moltres (Promo)", "Mr. Mime", "Mr. Mime (Sabrina's)", "Mr. Mime (Sabrina's 2)", "Muk", "Muk (Dark)", "Muk (Koga's)", "Murkrow (NG)", "Murkrow (NR)", "Mysterious Fossil", "Natu (NG)", "Natu (ND)", "Nidoking", "Nidoking (Giovanni's)", "Nidoqueen", "Nidoqueen (Giovanni's)", "Nidoran Female", "Nidoran Female (Giovanni's)", "Nidoran Male", "Nidoran Male (Giovanni's)", "Nidorina", "Nidorina (Giovanni's)", "Nidorino", "Nidorino (Giovanni's)", "Ninetales", "Ninetales (Brock's)", "Ninetales (Blaine's)", "Ninetales (Light)", "Noctowl (NG)", "Noctowl (Shining)", "Octillery (NR)", "Octillery (Dark)", "Oddish", "Oddish (R)", "Oddish (Erika's)", "Oddish (Erika's 2)", "Oddish (Erika's 3)", "Oddish (NG)", "Omanyte", "Omanyte (ND)", "Omanyte (Dark)", "Omastar", "Omastar (ND)", "Omastar (Dark)", "Onix", "Onix (Brock's)", "Onix (Brock's 2)", "Onix (NG)", "Onix (SI)", "Paras", "Paras (Erika's)", "Paras (NR)", "Parasect", "Parasect (NR)", "Persian", "Persian (Dark)", "Persian (Giovanni's)", "Phanpy (NG)", "Phanpy (NDe)", "Pichu (NG)", "Pichu (Promo)", "Pidgeot", "Pidgeot (SI)", "Pidgeotto", "Pidgeotto (Koga's)", "Pidgey", "Pidgey (Koga's)", "Pidgey (Koga's 2)", "Pikachu", "Pikachu (Jungle)", "Pikachu (Lt. Surge's)", "Pikachu (Lt. Surge's 2)", "Pikachu (NG)", "Pikachu (Promo)", "Pikachu (Promo 2)", "Pikachu (Promo 3)", "Pikachu (Promo 4)", "Pikachu (___'s)", "Pikachu (Flying)", "Pikachu (Surfing)", "Piloswine (NG)", "Piloswine (NR)", "Piloswine (Light)", "Pineco (ND)", "Pineco (NDe)", "Pinsir", "Pinsir (Giovanni's)", "Politoed (ND)", "Poliwag", "Poliwag (Misty's)", "Poliwag (Misty's 2)", "Poliwag (ND)", "Poliwhirl", "Poliwhirl (Misty's)", "Poliwhirl (ND)", "Poliwrath", "Poliwrath (Misty's)", "Poliwrath (ND)", "Ponyta", "Ponyta (R)", "Ponyta (Blaine's)", "Ponyta (Blaine's 2)", "Porygon", "Porygon (R)", "Porygon (NDe)", "Porygon (Sabrina's)", "Porygon (Cool)", "Porygon2 (NR)", "Porygon2 (Dark)", "Primeape", "Primeape (Dark)", "Primeape (Brock's)", "Primeape (SI)", "Psyduck", "Psyduck (R)", "Psyduck (Misty's)", "Psyduck (Misty's 2)", "Psyduck (Sabrina's)", "Psyduck (NDe)", "Pupitar (ND)", "Pupitar (Dark)", "Quagsire (NG)", "Quagsire (NR)", "Quilava (NG)", "Quilava (NG 2)", "Quilava (Dark)", "Qwilfish (NR)", "Raichu", "Raichu (Fossil)", "Raichu (Dark)", "Raichu (Lt. Surge's)", "Raichu (Lt. Surge's 2)", "Raichu (NR)", "Raichu (Shining)", "Raikou (NR)", "Raikou (NR 2)", "Rapidash", "Rapidash (Dark)", "Rapidash (Blaine's)", "Raticate", "Raticate (Dark)", "Raticate (Lt. Surge's)", "Raticate (Lt. Surge's 2)", "Raticate (SI)", "Rattata", "Rattata (R)", "Rattata (Lt. Surge's)", "Rattata (Lt. Surge's 2)", "Remoraid (NR)", "Remoraid (NDe)", "Rhydon", "Rhydon (Brock's)", "Rhyhorn", "Rhyhorn (Brock's)", "Rhyhorn (Brock's 2)", "Rhyhorn (Blaine's)", "Sandshrew", "Sandshrew (Brock's)", "Sandshrew (Brock's 2)", "Sandslash", "Sandslash (Brock's)", "Sandslash (Brock's 2)", "Scizor (ND)", "Scizor (Dark)", "Scizor (Promo)", "Scyther", "Scyther (Rocket's)", "Scyther (ND)", "Scyther (NDe)", "Scyther (Promo)", "Seadra", "Seadra (Misty's)", "Seadra (NG)", "Seaking", "Seaking (Misty's)", "Seaking (NR)", "Seel", "Seel (Misty's)", "Seel (Misty's 2)", "Seel (NDe)", "Sentret (NG)", "Sentret (ND)", "Shellder", "Shellder (Misty's)", "Shuckle (NG)", "Shuckle (NR)", "Skarmory (NG)", "Skarmory (NR)", "Skiploom (NG)", "Skiploom (NR)", "Slowbro", "Slowbro (Dark)", "Slowbro (Sabrina's)", "Slowbro (Light)", "Slowking (NG)", "Slowking (Dark)", "Slowking (SI)", "Slowpoke", "Slowpoke (R)", "Slowpoke (Sabrina's)", "Slowpoke (NG)", "Slugma (NR)", "Slugma (NDe)", "Smeargle (ND)", "Smeargle (Promo)", "Smoochum (NR)", "Sneasel (NG)", "Sneasel (NR)", "Snorlax", "Snorlax (Rocket's)", "Snorlax (Promo)", "Snubbull (NG)", "Snubbull (NR)", "Spearow", "Spearow (Lt. Surge's)", "Spearow (Lt. Surge's 2)", "Spinarak (NG)", "Spinarak (ND)", "Squirtle", "Squirtle (R)", "Stantler (NG)", "Stantler (NR)", "Starmie", "Starmie (Misty's)", "Starmie (NR)", "Staryu", "Staryu (Misty's)", "Staryu (Misty's 2)", "Staryu (NR)", "Steelix (NG)", "Steelix (Shining)", "Sudowoodo (NG)", "Sudowoodo (NR)", "Suicune (NR)", "Suicune (NR 2)", "Sunflora (NG)", "Sunflora (Light)", "Sunkern (NG)", "Sunkern (NDe)", "Swinub (NG)", "Swinub (NR)", "Swinub (NDe)", "Tangela", "Tangela (Erika's)", "Tangela (Koga's)", "Tauros", "Tauros (Blaine's)", "Teddiursa (ND)", "Tentacool", "Tentacool (Misty's)", "Tentacool (Misty's 2)", "Tentacruel", "Tentacruel (Misty's)", "Tentacruel (SI)", "Togepi (NG)", "Togepi (NDe)", "Togepi (Promo)", "Togepi (SI)", "Togetic (NG)", "Togetic (Light)", "Totodile (NG)", "Totodile (NG 2)", "Totodile (NDe)", "Typhlosion (NG)", "Typhlosion (NG 2)", "Typhlosion (Dark)", "Tyranitar (ND)", "Tyranitar (Dark)", "Tyranitar (Shining)", "Tyrogue (ND)", "Umbreon (ND)", "Unown A", "Unown B", "Unown C", "Unown D", "Unown E", "Unown F", "Unown G", "Unown H", "Unown I", "Unown J (Promo)", "Unown K", "Unown L", "Unown M", "Unown N", "Unown O", "Unown P", "Unown Q", "Unown R (Promo)", "Unown S", "Unown T", "Unown U", "Unown V", "Unown W", "Unown X", "Unown Y", "Unown Z", "Ursaring (ND)", "Ursaring (Dark)", "Vaporeon", "Vaporeon (Dark)", "Vaporeon (Light)", "Venomoth", "Venomoth (Sabrina's)", "Venomoth (Light)", "Venonat", "Venonat (Sabrina's)", "Venonat (NDe)", "Venusaur", "Venusaur (Erika's)", "Venusaur (Promo)", "Victreebel", "Victreebel (Erika's)", "Vileplume", "Vileplume (Dark)", "Vileplume (Erika's)", "Vileplume (SI)", "Voltorb", "Voltorb (R)", "Voltorb (Lt. Surge's)", "Voltorb (Lt. Surge's 2)", "Vulpix", "Vulpix (Blaine's)", "Vulpix (Blaine's 2)", "Vulpix (Brock's)", "Vulpix (Brock's 2)", "Vulpix (NDe)", "Wartortle", "Wartortle (Dark)", "Wartortle (SI)", "Weedle", "Weedle (Koga's)", "Weedle (ND)", "Weepinbell", "Weepinbell (Erika's)", "Weepinbell (Erika's 2)", "Weezing", "Weezing (Dark)", "Weezing (Koga's)", "Wigglytuff", "Wigglytuff (Dark)", "Wigglytuff (Light)", "Wobbuffet (ND)", "Wooper (NG)", "Wooper (ND)", "Xatu (NG)", "Xatu (ND)", "Yanma (ND)", "Zapdos", "Zapdos (Fossil)", "Zapdos (Rocket's)", "Zapdos (Promo)", "Zubat", "Zubat (R)", "Zubat (Brock's)", "Zubat (Brock's 2)", "Zubat (Koga's)", "Zubat (NR)" };
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -230,7 +220,7 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Stadium.setEditable(true);
-        Stadium.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Stadium", "Broken Ground Gym", "Celadon City Gym", "Cerulean City Gym", "Chaos Gym", "Cinnabar City Gym", "Ecogym", "Energy Stadium", "Fuchsia City Gym", "Healing Field", "Lucky Stadium", "No Removal Gym", "Narrow Gym", "Pewter City Gym", "Pokemon Tower", "Radio Tower", "Resistance Gym", "Rocket's Hideout", "Rocket's Minefield Gym", "Saffron City Gym", "Sprout Tower", "The Rocket's Training Gym", "Vermillion City Gym" }));
+        Stadium.setModel(new javax.swing.DefaultComboBoxModel(stadiumCards));
         AutoCompleteDecorator.decorate(Stadium);
         Stadium.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -240,7 +230,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.add(Stadium, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 150, 20));
 
         JohtoActive.setEditable(true);
-        JohtoActive.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //JohtoActive.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        JohtoActive.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         JohtoActive.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 JohtoActiveItemStateChanged(evt);
@@ -404,7 +395,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.setLayer(JohtoActiveEnergy4, 4);
 
         JohtoBench5.setEditable(true);
-        JohtoBench5.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //JohtoBench5.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        JohtoBench5.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         JohtoBench5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JohtoBench5ActionPerformed(evt);
@@ -450,7 +442,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.setLayer(JohtoBench5Energy4, 4);
 
         JohtoBench4.setEditable(true);
-        JohtoBench4.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //JohtoBench4.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        JohtoBench4.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         JohtoBench4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JohtoBench4ActionPerformed(evt);
@@ -496,7 +489,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.setLayer(JohtoBench4Energy4, 4);
 
         JohtoBench3.setEditable(true);
-        JohtoBench3.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //JohtoBench3.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        JohtoBench3.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         JohtoBench3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JohtoBench3ActionPerformed(evt);
@@ -542,7 +536,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.setLayer(JohtoBench3Energy4, 4);
 
         JohtoBench2.setEditable(true);
-        JohtoBench2.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //JohtoBench2.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        JohtoBench2.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         JohtoBench2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JohtoBench2ActionPerformed(evt);
@@ -593,7 +588,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.setLayer(JohtoBench2Energy4, 4);
 
         JohtoBench1.setEditable(true);
-        JohtoBench1.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //JohtoBench1.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        JohtoBench1.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         JohtoBench1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JohtoBench1ActionPerformed(evt);
@@ -639,7 +635,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.setLayer(JohtoBench1Energy1, 1);
 
         KantoActive.setEditable(true);
-        KantoActive.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //KantoActive.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        KantoActive.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         KantoActive.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 KantoActiveItemStateChanged(evt);
@@ -654,7 +651,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.add(KantoActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 210, 20));
 
         KantoBench1.setEditable(true);
-        KantoBench1.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //KantoBench1.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        KantoBench1.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         KantoBench1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KantoBench1ActionPerformed(evt);
@@ -664,7 +662,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.add(KantoBench1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, 20));
 
         KantoBench2.setEditable(true);
-        KantoBench2.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //KantoBench1.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        KantoBench2.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         KantoBench2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KantoBench2ActionPerformed(evt);
@@ -674,7 +673,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.add(KantoBench2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, 100, 20));
 
         KantoBench3.setEditable(true);
-        KantoBench3.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //KantoBench3.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        KantoBench3.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         KantoBench3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KantoBench3ActionPerformed(evt);
@@ -684,7 +684,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.add(KantoBench3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, 100, 20));
 
         KantoBench4.setEditable(true);
-        KantoBench4.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //KantoBench4.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        KantoBench4.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         KantoBench4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KantoBench4ActionPerformed(evt);
@@ -694,7 +695,8 @@ public class PokeboardUI extends javax.swing.JFrame {
         Background.add(KantoBench4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 620, 100, 20));
 
         KantoBench5.setEditable(true);
-        KantoBench5.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        //KantoBench5.setModel(new javax.swing.DefaultComboBoxModel(PokemonList));
+        KantoBench5.setModel(new javax.swing.DefaultComboBoxModel(pokemonCards));
         KantoBench5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KantoBench5ActionPerformed(evt);
@@ -1864,40 +1866,26 @@ public class PokeboardUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_KantoActiveActionPerformed
 
-    private void KantoActiveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_KantoActiveItemStateChanged
-String KantoString = (String)KantoActive.getSelectedItem();
-DisplayCard(KantoString, KantoCard);
-
+    private void KantoActiveItemStateChanged(java.awt.event.ItemEvent evt)
+    {
+        //GEN-FIRST:event_KantoActiveItemStateChanged  
+        Object item = KantoActive.getSelectedItem();
+        if(item instanceof CardUI)
+        {
+            CardUI selectedCard = (CardUI)item;
+            KantoCard.setIcon(selectedCard.GetIcon());
+        }
     }//GEN-LAST:event_KantoActiveItemStateChanged
-
-    private void StadiumItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_StadiumItemStateChanged
-String StadiumString = (String)Stadium.getSelectedItem();
-switch(StadiumString){
-    case "Stadium": StadiumCard.setIcon(null); break;
-    case "No Removal Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/No Removal Gym.png"))); break;
-    case "The Rocket's Training Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/The Rocket's Training Gym.png"))); break;
-    case "Celadon City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Celadon City Gym.png"))); break;
-    case "Cerulean City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Cerulean City Gym.png"))); break;
-    case "Pewter City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Pewter City Gym.png"))); break;
-    case "Vermillion City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Vermillion City Gym.png"))); break;
-    case "Narrow Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Narrow Gym.png"))); break;
-    case "Chaos Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Chaos Gym.png"))); break;
-    case "Resistance Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Resistance Gym.png"))); break;
-    case "Cinnabar City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Cinnabar City Gym.png"))); break;        
-    case "Fuchsia City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Fuchsia City Gym.png"))); break;        
-    case "Rocket's Minefield Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Rocket's Minefield Gym.png"))); break;        
-    case "Saffron City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Saffron City Gym.png"))); break;        
-    case "Viridian City Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Viridian City Gym.png"))); break;        
-    case "Ecogym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Ecogym.png"))); break;        
-    case "Sprout Tower": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Sprout Tower.png"))); break;        
-    case "Healing Field": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Healing Field.png"))); break;        
-    case "Rocket's Hideout": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Rocket's Hideout.png"))); break;        
-    case "Lucky Stadium": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Lucky Stadium.png"))); break;        
-    case "Pokemon Tower": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Pokemon Tower.png"))); break;        
-    case "Broken Ground Gym": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Broken Ground Gym.png"))); break;        
-    case "Radio Tower": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Radio Tower.png"))); break;        
-    case "Energy Stadium": StadiumCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stadiums/Energy Stadium.png"))); break;        
-}// TODO add your handling code here:
+    
+    private void StadiumItemStateChanged(java.awt.event.ItemEvent evt)
+    {
+        //GEN-FIRST:event_StadiumItemStateChanged
+        Object item = Stadium.getSelectedItem();
+        if(item instanceof CardUI)
+        {
+            CardUI selectedCard = (CardUI)item;
+            StadiumCard.setIcon(selectedCard.GetIcon());
+        }
     }//GEN-LAST:event_StadiumItemStateChanged
 
     private void JohtoBench1SwitchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JohtoBench1SwitchMouseClicked
@@ -2011,9 +1999,15 @@ switch(StadiumString){
         // TODO add your handling code here:
     }//GEN-LAST:event_KantoBench5SwitchActionPerformed
 
-    private void JohtoActiveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JohtoActiveItemStateChanged
-String JohtoString = (String)JohtoActive.getSelectedItem();
-DisplayCard(JohtoString, JohtoCard);        // TODO add your handling code here:
+    private void JohtoActiveItemStateChanged(java.awt.event.ItemEvent evt)
+    {
+        //GEN-FIRST:event_JohtoActiveItemStateChanged   
+        Object item = JohtoActive.getSelectedItem();
+        if(item instanceof CardUI)
+        {
+            CardUI selectedCard = (CardUI)item;
+            JohtoCard.setIcon(selectedCard.GetIcon());
+        }
     }//GEN-LAST:event_JohtoActiveItemStateChanged
 
     private void JohtoPrize1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JohtoPrize1MouseClicked
@@ -2504,792 +2498,6 @@ TextField.setText(DamageText); //To change body of generated methods, choose Too
         private void setIcon() {
     setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/pokeball.png")));
     }
-        
-    private void DisplayCard(String NameString, JLabel Card) {
-                switch (NameString){
-//Base Set
-    case "Active": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Back.png"))); break;
-    case "Abra": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Abra.png"))); break;
-    case "Abra (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Abra.png"))); break;
-    case "Alakazam": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Alakazam.png"))); break;
-    case "Arcanine": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Arcanine.png"))); break;
-    case "Beedrill": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Beedrill.png"))); break;
-    case "Blastoise": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Blastoise.png"))); break;
-    case "Bulbasaur": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Bulbasaur.png"))); break;
-    case "Caterpie": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Caterpie.png"))); break;
-    case "Chansey": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Chansey.png"))); break;
-    case "Charizard": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Charizard.png"))); break;
-    case "Charmander": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Charmander.png"))); break;
-    case "Charmeleon": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Charmeleon.png"))); break;
-    case "Clefairy": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Clefairy.png"))); break;
-    case "Dewgong": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Dewgong.png"))); break;
-    case "Diglett": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Diglett.png"))); break;
-    case "Doduo":  Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Doduo.png"))); break;
-    case "Dragonair":  Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Dragonair.png"))); break;
-    case "Dratini": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Dratini.png"))); break;
-    case "Drowzee": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Drowzee.png"))); break;
-    case "Dugtrio": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Dugtrio.png"))); break;
-    case "Electabuzz": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Electabuzz.png"))); break;
-    case "Electrode": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Electrode.png"))); break;
-    case "Farfetch'd": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Farfetch'd.png"))); break;
-    case "Gastly": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Gastly.png"))); break;
-    case "Growlithe": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Growlithe.png"))); break;
-    case "Gyarados": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Gyarados.png"))); break;    
-    case "Haunter": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Haunter.png"))); break; 
-    case "Hitmonchan": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Hitmonchan.png"))); break;    
-    case "Ivysaur": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Ivysaur.png"))); break;    
-    case "Jynx": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Jynx.png"))); break;    
-    case "Kadabra": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Kadabra.png"))); break; 
-    case "Kakuna": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Kakuna.png"))); break;    
-    case "Koffing": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Koffing.png"))); break;
-    case "Machamp": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Machamp.png"))); break;    
-    case "Machoke": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Machoke.png"))); break;
-    case "Machop": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Machop.png"))); break;
-    case "Magikarp": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Magikarp.png"))); break;
-    case "Magmar": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Magmar.png"))); break;
-    case "Magnemite": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Magnemite.png"))); break;
-    case "Magneton": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Magneton.png"))); break;    
-    case "Metapod": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Metapod.png"))); break;    
-    case "Mewtwo": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Mewtwo.png"))); break;
-    case "Nidoking": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Nidoking.png"))); break;
-    case "Nidoran Male": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Nidoran_male.png"))); break;    
-    case "Nidorino": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Nidorino.png"))); break;
-    case "Ninetales": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Ninetales.png"))); break;    
-    case "Onix": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Onix.png"))); break;    
-    case "Pidgeotto": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Pidgeotto.png"))); break;    
-    case "Pidgey": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Pidgey.png"))); break;    
-    case "Pikachu": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Pikachu.png"))); break;  
-    case "Poliwag": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Poliwag.png"))); break;
-    case "Poliwhirl": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Poliwhirl.png"))); break;
-    case "Poliwrath": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Poliwrath.png"))); break;    
-    case "Ponyta": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Ponyta.png"))); break;
-    case "Porygon": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Porygon.png"))); break;
-    case "Raichu": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Raichu.png"))); break;
-    case "Raticate": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Raticate.png"))); break;
-    case "Rattata": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Rattata.png"))); break;
-    case "Sandshrew": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Sandshrew.png"))); break;    
-    case "Seel": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Seel.png"))); break;   
-    case "Squirtle": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Squirtle.png"))); break;
-    case "Starmie": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Starmie.png"))); break;
-    case "Staryu": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Staryu.png"))); break;  
-    case "Tangela": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Tangela.png"))); break;
-    case "Venusaur": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Venusaur.png"))); break;
-    case "Voltorb": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Voltorb.png"))); break;
-    case "Vulpix": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Vulpix.png"))); break; 
-    case "Wartortle": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Wartortle.png"))); break;
-    case "Weedle": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Weedle.png"))); break;
-    case "Zapdos": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/base/Zapdos.png"))); break;
-
-//Jungle
-    case "Bellsprout": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Bellsprout.png"))); break;    
-    case "Butterfree": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Butterfree.png"))); break; 
-    case "Clefable": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Clefable.png"))); break;    
-    case "Cubone": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Cubone.png"))); break;    
-    case "Dodrio": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Dodrio.png"))); break;    
-    case "Electrode (Jungle)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Electrode.png"))); break;    
-    case "Exeggcute": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Exeggcute.png"))); break;    
-    case "Exeggutor": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Exeggutor.png"))); break;    
-    case "Fearow": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Fearow.png"))); break;
-    case "Flareon": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Flareon.png"))); break;    
-    case "Gloom": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Gloom.png"))); break;    
-    case "Goldeen": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Goldeen.png"))); break;    
-    case "Jigglypuff": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Jigglypuff.png"))); break;    
-    case "Jolteon": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Jolteon.png"))); break;
-    case "Kangaskhan": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Kangaskhan.png"))); break;    
-    case "Lickitung": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Lickitung.png"))); break;    
-    case "Mankey": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Mankey.png"))); break;    
-    case "Marowak": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Marowak.png"))); break;    
-    case "Meowth": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Meowth.png"))); break; 
-    case "Mr. Mime": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/MrMime.png"))); break;    
-    case "Nidoqueen": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Nidoqueen.png"))); break;    
-    case "Nidoran Female": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Nidoran(Female).png"))); break; 
-    case "Nidorina": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Nidorina.png"))); break;    
-    case "Oddish": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Oddish(Stun_Spore).png"))); break;    
-    case "Paras": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Paras.png"))); break;    
-    case "Parasect": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Parasect.png"))); break;    
-    case "Persian": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Persian.png"))); break;
-    case "Pidgeot": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Pidgeot.png"))); break;    
-    case "Pikachu (Jungle)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Pikachu(Spark).png"))); break;    
-    case "Pinsir": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Pinsir.png"))); break;    
-    case "Primeape": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Primeape.png"))); break;    
-    case "Rapidash": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Rapidash.png"))); break;    
-    case "Rhydon": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Rhydon.png"))); break;
-    case "Rhyhorn": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Rhyhorn.png"))); break;    
-    case "Seaking": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Seaking.png"))); break;    
-    case "Snorlax": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Snorlax.png"))); break;    
-    case "Spearow": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Spearow.png"))); break;    
-    case "Tauros": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Tauros.png"))); break;    
-    case "Vaporeon": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Vaporeon.png"))); break;
-    case "Venomoth": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Venemoth.png"))); break;    
-    case "Venonat": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Venonat.png"))); break;    
-    case "Victreebel": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Victreebel.png"))); break;    
-    case "Vileplume": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Vileplume.png"))); break;    
-    case "Weepinbell": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Weepinbell.png"))); break;
-    case "Wigglytuff": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Wigglytuff.png"))); break;
-    case "Eevee": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Eevee.png"))); break;
-    case "Scyther": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/jungle/Scyther.png"))); break;    
-        
-//Fossil   
-    case "Aerodactyl": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Aerodactyl.png"))); break;
-    case "Arbok": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Arbok.png"))); break;
-    case "Articuno": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Articuno.png"))); break;
-    case "Cloyster": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Cloyster.png"))); break;
-    case "Ditto": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Ditto.png"))); break;
-    case "Dragonite": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Dragonite.png"))); break;
-    case "Ekans": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Ekans.png"))); break;    
-    case "Gastly (Fossil)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Gastly.png"))); break;
-    case "Gengar": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Gengar.png"))); break;
-    case "Geodude": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Geodude.png"))); break;
-    case "Golbat": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Golbat.png"))); break;
-    case "Golduck": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Golduck.png"))); break;
-    case "Golem": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Golem.png"))); break;
-    case "Graveler": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Graveler.png"))); break;
-    case "Grimer": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Grimer.png"))); break;
-    case "Haunter (Fossil)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Haunter.png"))); break;    
-    case "Hitmonlee": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Hitmonlee.png"))); break;    
-    case "Horsea": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Horsea.png"))); break;    
-    case "Hypno": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Hypno.png"))); break;    
-    case "Kabuto": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Kabuto.png"))); break;    
-    case "Kabutops": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Kabutops.png"))); break;    
-    case "Kingler": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Kingler.png"))); break;    
-    case "Krabby": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Krabby.png"))); break;
-    case "Lapras": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Lapras.png"))); break;    
-    case "Magmar (Fossil)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Magmar.png"))); break;    
-    case "Magneton (Fossil)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Magneton.png"))); break;    
-    case "Moltres": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Moltres.png"))); break;    
-    case "Muk": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Muk.png"))); break;
-    case "Mysterious Fossil": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Mysterious Fossil.png"))); break;    
-    case "Omanyte": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Omanyte.png"))); break;    
-    case "Omastar": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Omastar.png"))); break;    
-    case "Psyduck": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Psyduck.png"))); break;    
-    case "Raichu (Fossil)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Raichu.png"))); break;
-    case "Sandslash": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Sandslash.png"))); break;    
-    case "Seadra": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Seadra.png"))); break; 
-    case "Shellder": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Shellder.png"))); break;    
-    case "Slowbro": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Slowbro.png"))); break;    
-    case "Slowpoke": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Slowpoke.png"))); break;    
-    case "Tentacool": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Tentacool.png"))); break;    
-    case "Tentacruel": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Tentacruel.png"))); break;    
-    case "Weezing": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Weezing.png"))); break; 
-    case "Zapdos (Fossil)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Zapdos.png"))); break;    
-    case "Zubat": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fossil/Zubat.png"))); break;    
-        
-//Team Rocket
-    case "Charmander (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Charmander.png"))); break;
-    case "Alakazam (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Alakazam.png"))); break;
-    case "Arbok (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Arbok.png"))); break;        
-    case "Blastoise (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Blastoise.png"))); break;        
-    case "Charizard (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Charizard.png"))); break;        
-    case "Charmeleon (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Charmeleon.png"))); break;
-    case "Dragonair (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Dragonair.png"))); break;    
-    case "Dragonite (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Dragonite.png"))); break;    
-    case "Dugtrio (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Dugtrio.png"))); break;    
-    case "Electrode (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Electrode.png"))); break;
-    case "Flareon (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Flareon.png"))); break;    
-    case "Gloom (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Gloom.png"))); break;    
-    case "Golbat (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Golbat.png"))); break;    
-    case "Golduck (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Golduck.png"))); break;
-    case "Gyarados (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Gyarados.png"))); break;    
-    case "Hypno (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Hypno.png"))); break;    
-    case "Jolteon (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Jolteon.png"))); break;    
-    case "Kadabra (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Kadabra.png"))); break;    
-    case "Machamp (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Machamp.png"))); break;    
-    case "Machoke (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Machoke.png"))); break;    
-    case "Magneton (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Magneton.png"))); break;
-    case "Muk (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Muk.png"))); break;    
-    case "Persian (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Persian.png"))); break;    
-    case "Primeape (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Primeape.png"))); break;    
-    case "Raichu (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Raichu.png"))); break;    
-    case "Rapidash (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Rapidash.png"))); break;    
-    case "Raticate (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Raticate.png"))); break;    
-    case "Slowbro (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Slowbro.png"))); break;    
-    case "Vaporeon (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Vaporeon.png"))); break;
-    case "Vileplume (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Vileplume.png"))); break;    
-    case "Wartortle (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Wartortle.png"))); break;    
-    case "Weezing (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dark Weezing.png"))); break;    
-    case "Diglett (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Diglett.png"))); break;
-    case "Dratini (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Dratini.png"))); break;    
-    case "Drowzee (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Drowzee.png"))); break;    
-    case "Eevee (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Eevee.png"))); break;    
-    case "Ekans (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Ekans.png"))); break;
-    case "Grimer (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Grimer.png"))); break;    
-    case "Koffing (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Koffing.png"))); break;    
-    case "Machop (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Machop.png"))); break;    
-    case "Magikarp (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Magikarp.png"))); break;    
-    case "Magnemite (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Magnemite.png"))); break;    
-    case "Mankey (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Mankey.png"))); break;
-    case "Meowth (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Meowth.png"))); break;    
-    case "Oddish (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Oddish.png"))); break;    
-    case "Ponyta (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Ponyta.png"))); break;    
-    case "Porygon (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Porygon.png"))); break;
-    case "Psyduck (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Psyduck.png"))); break;    
-    case "Rattata (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Rattata.png"))); break;    
-    case "Slowpoke (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Slowpoke.png"))); break;    
-    case "Squirtle (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Squirtle.png"))); break;
-    case "Voltorb (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Voltorb.png"))); break;    
-    case "Zubat (R)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_rocket/Zubat.png"))); break;    
-        
-//Gym Challenge
-    case "Arcanine (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Arcanine.png"))); break;    
-    case "Charizard (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Charizard.png"))); break;    
-    case "Charmander (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Charmander.png"))); break;
-    case "Charmeleon (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Charmeleon.png"))); break;    
-    case "Dodrio (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Dodrio.png"))); break;    
-    case "Doduo (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Doduo.png"))); break;    
-    case "Growlithe (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Growlithe.png"))); break;    
-    case "Mankey (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Mankey.png"))); break;
-    case "Ninetales (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Ninetales.png"))); break;    
-    case "Ponyta (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Ponyta.png"))); break;   
-    case "Rapidash (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Rapidash.png"))); break;    
-    case "Rhyhorn (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Rhyhorn.png"))); break;    
-    case "Vulpix (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Blaine's Vulpix.png"))); break;  
-    case "Diglett (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Diglett.png"))); break;
-    case "Dugtrio (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Dugtrio.png"))); break;
-    case "Geodude (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Geodude.png"))); break;    
-    case "Graveler (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Graveler.png"))); break;    
-    case "Ninetales (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Ninetales.png"))); break;    
-    case "Primeape (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Primeape.png"))); break;    
-    case "Sandslash (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Sandslash.png"))); break;
-    case "Vulpix (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Brock's Vulpix.png"))); break;    
-    case "Bellsprout (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Bellsprout.png"))); break; 
-    case "Bulbasaur (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Bulbasaur.png"))); break;    
-    case "Clefairy (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Clefairy.png"))); break;
-    case "Ivysaur (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Ivysaur.png"))); break;    
-    case "Jigglypuff (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Jigglypuff.png"))); break;    
-    case "Oddish (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Oddish.png"))); break;    
-    case "Paras (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Paras.png"))); break;
-    case "Venusaur (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Erika's Venusaur.png"))); break;    
-    case "Gyarados (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Gyarados.png"))); break;
-    case "Machamp (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Machamp.png"))); break;
-    case "Machoke (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Machoke.png"))); break;
-    case "Machop (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Machop.png"))); break;    
-    case "Magikarp (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Magikarp.png"))); break;    
-    case "Meowth (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Meowth Lv17.png"))); break;    
-    case "Meowth (Giovanni's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Meowth.png"))); break;    
-    case "Nidoking (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Nidoking.png"))); break;    
-    case "Nidoqueen (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Nidoqueen.png"))); break;    
-    case "Nidoran Female (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Nidoran Female.png"))); break;    
-    case "Nidoran Male (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Nidoran Male.png"))); break;   
-    case "Nidorina (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Nidorina.png"))); break;    
-    case "Nidorino (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Nidorino.png"))); break;
-    case "Persian (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Persian.png"))); break;    
-    case "Pinsir (Giovanni's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Giovanni's Pinsir.png"))); break;    
-    case "Arbok (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Arbok.png"))); break;
-    case "Beedrill (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Beedrill.png"))); break;    
-    case "Ditto (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Ditto.png"))); break;    
-    case "Ekans (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Ekans.png"))); break;
-    case "Golbat (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Golbat.png"))); break;    
-    case "Grimer (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Grimer.png"))); break;    
-    case "Kakuna (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Kakuna.png"))); break;    
-    case "Koffing (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Koffing Lv10.png"))); break;
-    case "Koffing (Koga's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Koffing.png"))); break;    
-    case "Muk (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Muk.png"))); break;    
-    case "Pidgeotto (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Pidgeotto.png"))); break;    
-    case "Pidgey (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Pidgey Lv15.png"))); break;    
-    case "Pidgey (Koga's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Pidgey.png"))); break;    
-    case "Tangela (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Tangela.png"))); break;
-    case "Weedle (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Weedle.png"))); break;    
-    case "Weezing (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Weezing.png"))); break;    
-    case "Zubat (Koga's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Koga's Zubat.png"))); break;    
-    case "Eevee (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Eevee.png"))); break;    
-    case "Electrode (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Electrode.png"))); break;    
-    case "Jolteon (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Jolteon.png"))); break;
-    case "Pikachu (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Pikachu.png"))); break;    
-    case "Raichu (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Raichu.png"))); break;    
-    case "Raticate (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Raticate.png"))); break;    
-    case "Rattata (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Rattata.png"))); break;    
-    case "Voltorb (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Lt Surge's Voltorb.png"))); break;    
-    case "Dewgong (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Dewgong.png"))); break;
-    case "Golduck (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Golduck.png"))); break;    
-    case "Gyarados (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Gyarados.png"))); break;    
-    case "Horsea (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Horsea.png"))); break;
-    case "Magikarp (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Magikarp.png"))); break;    
-    case "Poliwag (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Poliwag.png"))); break;    
-    case "Psyduck (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Psyduck.png"))); break;    
-    case "Seel (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Seel.png"))); break;    
-    case "Staryu (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Misty's Staryu.png"))); break;    
-    case "Mewtwo (Rocket's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Rocket's Mewtwo.png"))); break;
-    case "Zapdos (Rocket's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Rocket's Zapdos.png"))); break;    
-    case "Abra (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Abra Lv18.png"))); break;    
-    case "Abra (Sabrina's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Abra.png"))); break;    
-    case "Alakazam (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Alakazam.png"))); break;    
-    case "Drowzee (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Drowzee.png"))); break;    
-    case "Gastly (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Gastly Lv10.png"))); break;
-    case "Gastly (Sabrina's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Gastly.png"))); break;    
-    case "Gengar (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Gengar.png"))); break;    
-    case "Golduck (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Golduck.png"))); break;    
-    case "Haunter (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Haunter.png"))); break;    
-    case "Hypno (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Hypno.png"))); break; 
-    case "Jynx (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Jynx.png"))); break;    
-    case "Kadabra (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Kadabra.png"))); break;    
-    case "Mr. Mime (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Mr.png"))); break;    
-    case "Porygon (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Porygon.png"))); break;    
-    case "Psyduck (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_challenge/Sabrina's Psyduck.png"))); break;    
-   
-//Gym Heroes
-    case "Charmander (Blaine's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Charmander.png"))); break;
-    case "Growlithe (Blaine's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Growlithe Lv15.png"))); break;    
-    case "Growlithe (Blaine's 3)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Growlithe.png"))); break;    
-    case "Kangaskhan (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Kangaskhan.png"))); break;
-    case "Magmar (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Magmar.png"))); break;
-    case "Moltres (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Moltres.png"))); break;
-    case "Ponyta (Blaine's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Ponyta.png"))); break;
-    case "Tauros (Blaine's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Tauros.png"))); break;
-    case "Vulpix (Blaine's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Blaine's Vulpix.png"))); break;
-    case "Geodude (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Geodude Lv13.png"))); break;
-    case "Geodude (Brock's 3)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Geodude.png"))); break;
-    case "Golbat (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Golbat.png"))); break;
-    case "Golem (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Golem.png"))); break;    
-    case "Graveler (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Graveler.png"))); break;    
-    case "Lickitung (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Lickitung.png"))); break;    
-    case "Mankey (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Mankey Lv12.png"))); break;
-    case "Mankey (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Mankey.png"))); break;
-    case "Onix (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Onix Lv41.png"))); break;
-    case "Onix (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Onix.png"))); break;
-    case "Rhyhorn (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Rhyhorn.png"))); break;
-    case "Rhydon (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Rhydon.png"))); break;    
-    case "Rhyhorn (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Rhyhorn Lv29.png"))); break;
-    case "Sandshrew (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Sandshrew.png"))); break;
-    case "Sandshrew (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Sandshrew Lv20.png"))); break;
-    case "Sandslash (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Sandslash.png"))); break;
-    case "Vulpix (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Vulpix.png"))); break;
-    case "Zubat (Brock's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Zubat.png"))); break;
-    case "Zubat (Brock's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Brock's Zubat Lv11.png"))); break;
-    case "Bellsprout (Erika's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Bellsprout.png"))); break;
-    case "Bellsprout (Erika's 3)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Bellsprout Lv15.png"))); break;
-    case "Clefable (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Clefable.png"))); break;
-    case "Clefairy (Erika's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Clefairy.png"))); break;
-    case "Dragonair (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Dragonair.png"))); break;
-    case "Dratini (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Dratini.png"))); break;
-    case "Exeggcute (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Exeggcute Lv12.png"))); break;
-    case "Exeggcute (Erika's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Exeggcute.png"))); break;
-    case "Exeggutor (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Exeggutor.png"))); break;
-    case "Gloom (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Gloom Lv28.png"))); break;
-    case "Gloom (Erika's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Gloom.png"))); break;
-    case "Oddish (Erika's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Oddish Lv15.png"))); break;
-    case "Oddish (Erika's 3)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Oddish.png"))); break;
-    case "Tangela (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Tangela.png"))); break;
-    case "Victreebel (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Victreebel.png"))); break;
-    case "Vileplume (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Vileplume.png"))); break;
-    case "Weepinbell (Erika's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Weepinbell.png"))); break;
-    case "Weepinbell (Erika's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Erika's Weepinbell Lv30.png"))); break;
-    case "Electabuzz (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Electabuzz Lv22.png"))); break;
-    case "Electabuzz (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Electabuzz.png"))); break;
-    case "Fearow (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Fearow.png"))); break;
-    case "Magnemite (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Magnemite.png"))); break;
-    case "Magnemite (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Magnemite Lv12.png"))); break;
-    case "Magneton (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Magneton.png"))); break;    
-    case "Pikachu (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Pikachu.png"))); break;
-    case "Raichu (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Raichu.png"))); break;
-    case "Raticate (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Raticate.png"))); break;
-    case "Rattata (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Rattata.png"))); break;
-    case "Spearow (Lt. Surge's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Spearow Lv17.png"))); break;
-    case "Spearow (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Spearow.png"))); break;
-    case "Voltorb (Lt. Surge's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Lt Surge's Voltorb.png"))); break;
-    case "Cloyster (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Cloyster.png"))); break;
-    case "Goldeen (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Goldeen.png"))); break;
-    case "Goldeen (Misty's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Goldeen Lv10.png"))); break;
-    case "Horsea (Misty's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Horsea.png"))); break;    
-    case "Poliwag (Misty's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Poliwag.png"))); break;    
-    case "Poliwhirl (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Poliwhirl.png"))); break;    
-    case "Poliwrath (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Poliwrath.png"))); break;
-    case "Psyduck (Misty's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Psyduck.png"))); break;
-    case "Seadra (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Seadra.png"))); break;
-    case "Seaking (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Seaking.png"))); break;
-    case "Seel (Misty's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Seel.png"))); break;
-    case "Shellder (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Shellder.png"))); break;
-    case "Starmie (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Starmie.png"))); break;
-    case "Staryu (Misty's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Staryu.png"))); break;
-    case "Tentacool (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Tentacool.png"))); break;
-    case "Tentacool (Misty's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Tentacool Lv16.png"))); break;    
-    case "Tentacruel (Misty's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Misty's Tentacruel.png"))); break;    
-    case "Hitmonchan (Rocket's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Rocket's Hitmonchan.png"))); break;  
-    case "Moltres (Rocket's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Rocket's Moltres.png"))); break;    
-    case "Scyther (Rocket's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Rocket's Scyther.png"))); break;    
-    case "Snorlax (Rocket's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Rocket's Snorlax.png"))); break;
-    case "Abra (Sabrina's 3)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Abra.png"))); break;    
-    case "Drowzee (Sabrina's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Drowzee.png"))); break;    
-    case "Gastly (Sabrina's 3)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Gastly.png"))); break;    
-    case "Gengar (Sabrina's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Gengar.png"))); break;    
-    case "Haunter (Sabrina's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Haunter.png"))); break;
-    case "Jynx (Sabrina's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Jynx.png"))); break;
-    case "Mr. Mime (Sabrina's 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Mr.png"))); break;
-    case "Slowbro (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Slowbro.png"))); break;
-    case "Slowpoke (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Slowpoke.png"))); break;
-    case "Venomoth (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Venomoth.png"))); break;
-    case "Venonat (Sabrina's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym_heroes/Sabrina's Venonat.png"))); break;
-    
-    //Neo Genesis
-    case "Aipom (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Aipom_NG.png"))); break;
-    case "Ampharos (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Ampharos_NG.png"))); break;
-    case "Ariados (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Ariados_NG.png"))); break;
-    case "Azumarill (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Azumarill.png"))); break;
-    case "Bayleef (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Bayleef1_NG.png"))); break;
-    case "Bayleef (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Bayleef2_NG.png"))); break;
-    case "Bellossom (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Bellossom_NG.png"))); break;
-    case "Chikorita (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Chikorita1_NG.png"))); break;
-    case "Chikorita (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Chikorita2_NG.png"))); break;
-    case "Chinchou (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Chinchou_NG.png"))); break;
-    case "Clefairy (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Clefairy_NG.png"))); break;
-    case "Cleffa (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/CleffaBROKEN_ng.png"))); break;
-    case "Croconaw (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/CroconawGOOD_NG.png"))); break;
-    case "Croconaw (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Croconaw_NG.png"))); break;
-    case "Cyndaquil (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Cyndaquil1_NG.png"))); break;
-    case "Cyndaquil (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Cyndaquil2_NG.png"))); break;
-    case "Donphan (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Donphan_NG.png"))); break;
-    case "Electabuzz (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Electabuzz_NG.png"))); break;
-    case "Elekid (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Elekid_NG.png"))); break;
-    case "Feraligatr (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/FeraligatrBERSERK_NG.png"))); break;
-    case "Feraligatr (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/FeraligatrRIPTIDE_NG.png"))); break;
-    case "Flaaffy (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Flaaffy_NG.png"))); break;
-    case "Furret (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Furret_NG.png"))); break;
-    case "Girafarig (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Girafarig_NG.png"))); break;
-    case "Gligar (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Gligar_NG.png"))); break;
-    case "Gloom (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Gloom_NG.png"))); break;
-    case "Granbull (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Granbull_NG.png"))); break;
-    case "Heracross (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Heracross_NG.png"))); break;
-    case "Hoothoot (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Hoothoot_NG.png"))); break;
-    case "Hoppip (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Hoppip_NG.png"))); break;
-    case "Horsea (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Horsea_NG.png"))); break;
-    case "Jumpluff (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Jumpluff.png"))); break;
-    case "Kingdra (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Kingdra_NG.png"))); break;
-    case "Lanturn (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Lanturn_NG.png"))); break;
-    case "Ledian (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Ledian_NG.png"))); break;
-    case "Ledyba (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Ledyba_NG.png"))); break;
-    case "Lugia (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Lugia_NG.png"))); break;
-    case "Magby (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Magby_NG.png"))); break;
-    case "Magmar (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Magmar_NG.png"))); break;
-    case "Mantine (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Mantine_NG.png"))); break;
-    case "Mareep (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Mareep_NG.png"))); break;
-    case "Marill (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Marill_NG.png"))); break;
-    case "Meganium (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/MeganiumHERBALSCENT_NG.png"))); break;
-    case "Meganium (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/MeganiumWILDGROWTH_NG.png"))); break;
-    case "Miltank (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Miltank_NG.png"))); break;
-    case "Murkrow (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Murkrow_NG.png"))); break;
-    case "Natu (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Natu_NG.png"))); break;
-    case "Noctowl (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Noctowl_NG.png"))); break;
-    case "Oddish (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Oddish_NG.png"))); break;
-    case "Onix (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Onix_NG.png"))); break;
-    case "Phanpy (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Phanpy_NG.png"))); break;
-    case "Pichu (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Pichu_NG.png"))); break;
-    case "Pikachu (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Pikachu_NG.png"))); break;
-    case "Piloswine (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Piloswine_NG.png"))); break;
-    case "Quagsire (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Quagsire_NG.png"))); break;
-    case "Quilava (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Quilava1_NG.png"))); break;
-    case "Quilava (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Quilava2_NG.png"))); break;
-    case "Seadra (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Seadra_NG.png"))); break;
-    case "Sentret (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Sentret_NG.png"))); break;
-    case "Shuckle (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Shuckle_NG.png"))); break;
-    case "Skarmory (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Skarmory_NG.png"))); break;
-    case "Skiploom (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Skiploom_NG.png"))); break;
-    case "Slowking (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Slowking_NG.png"))); break;
-    case "Slowpoke (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Slowpoke_NG.png"))); break;
-    case "Sneasel (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/SneaselBANNED_NG.png"))); break;
-    case "Snubbull (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Snubbull_NG.png"))); break;
-    case "Spinarak (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Spinarak_NG.png"))); break;
-    case "Stantler (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Stantler_NG.png"))); break;
-    case "Steelix (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Steelix_NG.png"))); break;
-    case "Sudowoodo (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Sudowoodo_NG.png"))); break;
-    case "Sunflora (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Sunflora_NG.png"))); break;
-    case "Sunkern (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Sunkern_NG.png"))); break;
-    case "Swinub (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Swinub_NG.png"))); break;
-    case "Togepi (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Togepi_NG.png"))); break;
-    case "Togetic (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Togetic.png"))); break;
-    case "Totodile (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Totodile1_NG.png"))); break;
-    case "Totodile (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Totodile2_NG.png"))); break;
-    case "Typhlosion (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/TyphlosionFIREBOOST_NG.png"))); break;
-    case "Typhlosion (NG 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Typhlosion_FIRERECHARGE.png"))); break;    
-    case "Wooper (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Wooper_NG.png"))); break;    
-    case "Xatu (NG)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_genesis/Xatu_NG.png"))); break;
-    
-    //Neo Discovery
-    case "Beedrill (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Beedrill_NDISC.png"))); break;
-    case "Butterfree (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Butterfree_NDISC.png"))); break;
-    case "Caterpie (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Caterpie_NDISC.png"))); break;
-    case "Corsola (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Corsola_NDISC.png"))); break;
-    case "Dunsparce (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Dunsparce_NDISC.png"))); break;
-    case "Eevee (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Eevee_NDISC.png"))); break;
-    case "Espeon (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Espeon_NDISC.png"))); break;
-    case "Espeon (ND 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Espeon2_NDISC.png"))); break;
-    case "Forretress (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Forretress.png"))); break;
-    case "Hitmontop (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Hitmontop.png"))); break;    
-    case "Hoppip (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Hoppip_NDISC.png"))); break;    
-    case "Houndoom (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Houndoom_NDISC.png"))); break;    
-    case "Houndour (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Houndour_DARKNESS_NDISC.png"))); break;    
-    case "Houndour (ND 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Houndour_NDISC.png"))); break;
-    case "Igglybuff (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Igglybuff.png"))); break;
-    case "Kabuto (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Kabuto_NDISC.png"))); break;
-    case "Kabutops (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Kabutops_NDISC.png"))); break;
-    case "Kakuna (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Kakuna_NDISC.png"))); break;
-    case "Larvitar (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Larvitar_NDISC.png"))); break;
-    case "Magnemite (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Magnemite_NDISC.png"))); break;
-    case "Mareep (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Mareep_NDISC.png"))); break;
-    case "Metapod (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Metapod_NDISC.png"))); break;
-    case "Natu (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Natu_NDISC.png"))); break;
-    case "Omanyte (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Omanyte_NDISC.png"))); break;
-    case "Omastar (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Omastar_NDISC.png"))); break;
-    case "Pineco (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Pineco_NDISC.png"))); break;
-    case "Politoed (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Politoed.png"))); break;
-    case "Poliwag (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Poliwag_NDISC.png"))); break;
-    case "Poliwhirl (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Poliwhirl_NDISC.png"))); break;
-    case "Poliwrath (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Poliwrath_NDISC.png"))); break;
-    case "Pupitar (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Pupitar_NDISC.png"))); break;
-    case "Scizor (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Scizor_NDISC.png"))); break; 
-    case "Scyther (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Scyther_NDISC.png"))); break;
-    case "Sentret (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Sentret_NDISC.png"))); break;
-    case "Smeargle (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Smeargle_NDISC.png"))); break;
-    case "Spinarak (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Spinarak_NDISC.png"))); break;
-    case "Teddiursa (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Teddiursa_NDISC.png"))); break;
-    case "Tyranitar (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Tyranitar_NDISC.png"))); break;
-    case "Tyrogue (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Tyrogue_NDISC.png"))); break;
-    case "Umbreon (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Umbreon_NDISC.png"))); break;
-    case "Unown A": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownA_NDISC.png"))); break;
-    case "Unown D": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownD_NDISC.png"))); break;
-    case "Unown E": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownE_NDISC.png"))); break;
-    case "Unown F": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownF_NDISC.png"))); break;
-    case "Unown I": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownI_NDISC.png"))); break;
-    case "Unown M": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownM_NDISC.png"))); break;
-    case "Unown N": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownN_NDISC.png"))); break;
-    case "Unown O": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownO_NDISC.png"))); break;
-    case "Unown U": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/UnownU_NDISC.png"))); break; 
-    case "Ursaring (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Ursaring_NDISC.png"))); break;
-    case "Weedle (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Weedle_NDISC.png"))); break;
-    case "Wobbuffet (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Wobbuffet_NDISC.png"))); break;
-    case "Wooper (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Wooper_NDISC.png"))); break;
-    case "Xatu (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Xatu_NDISC.png"))); break;
-    case "Yanma (ND)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_discovery/Yanma_NDISC.png"))); break;
-    
-    //Neo Revelations
-    case "Aerodactyl (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Aerodactyl_NR.png"))); break;    
-    case "Aipom (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Aipom_NR.png"))); break;
-    case "Ampharos (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Ampharos_NR.png"))); break;
-    case "Blissey (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Blissey.png"))); break;
-    case "Celebi (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Celebi_NR.png"))); break;
-    case "Celebi (NR 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Celebi_NRgrass.png"))); break;
-    case "Chinchou (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Chinchou_NR.png"))); break;
-    case "Crobat (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Crobat_NR.png"))); break;
-    case "Delibird (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Delibird.png"))); break;
-    case "Entei (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Entei_LegendaryBody.png"))); break;
-    case "Entei (NR 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Entei_NR.png"))); break;
-    case "Farfetch'd (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Farfetch'd_NR.png"))); break;
-    case "Flaaffy (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Flaaffy_NR.png"))); break;
-    case "Geodude (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Geodude_NR.png"))); break;
-    case "Golbat (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Golbat_NR.png"))); break;
-    case "Goldeen (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Goldeen_NR.png"))); break;
-    case "Graveler (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Graveler_NR.png"))); break;
-    case "Ho-Oh (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Ho-oh_NR.png"))); break;
-    case "Ho-Oh (NR 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Ho-oh_colorless.png"))); break;
-    case "Houndoom (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Houndoom.png"))); break;
-    case "Jumpluff (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Jumpluff.png"))); break;
-    case "Jynx (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Jynx_NRwater.png"))); break;
-    case "Kingdra (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Kingdra.png"))); break;
-    case "Lanturn (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Lanturn_NR.png"))); break;
-    case "Lugia (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Lugia.png"))); break;
-    case "Magcargo (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Magcargo.png"))); break;
-    case "Magneton (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Magneton_NR.png"))); break;
-    case "Misdreavus (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Misdreavus.png"))); break;
-    case "Murkrow (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Murkrow.png"))); break;
-    case "Octillery (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Octillery.png"))); break;
-    case "Paras (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Paras_NR.png"))); break;
-    case "Parasect (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Parasect_NR.png"))); break;
-    case "Piloswine (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Piloswine_NR.png"))); break;
-    case "Porygon2 (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Porygon2.png"))); break;
-    case "Quagsire (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Quagsire_NR.png"))); break;
-    case "Qwilfish (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Qwilfish.png"))); break;
-    case "Raichu (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Raichu_NR.png"))); break;
-    case "Raikou (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Raikou_NR.png"))); break;
-    case "Raikou (NR 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Raikou_Legendarybody.png"))); break;
-    case "Remoraid (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Remoraid_NR.png"))); break;    
-    case "Seaking (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Seaking_NR.png"))); break;
-    case "Shuckle (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Shuckle_NR.png"))); break;
-    case "Skarmory (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Skarmory.png"))); break;
-    case "Skiploom (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Skiploom_NR.png"))); break;
-    case "Slugma (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Slugma_NR.png"))); break;
-    case "Smoochum (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Smoochum_NR.png"))); break;
-    case "Sneasel (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Sneasel.png"))); break;
-    case "Snubbull (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Snubbull.png"))); break;
-    case "Stantler (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Stantler.png"))); break;
-    case "Starmie (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Starmie_NR.png"))); break;
-    case "Staryu (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Staryu_NR.png"))); break;
-    case "Sudowoodo (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Sudowoodo_NRmimic.png"))); break;
-    case "Suicune (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Suicune_NR.png"))); break;
-    case "Suicune (NR 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Suicune_legendarybody.png"))); break;
-    case "Swinub (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Swinub_NR.png"))); break;
-    case "Unown B": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/UnownB.png"))); break;
-    case "Unown K": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/UnownK.png"))); break;
-    case "Unown Y": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/UnownY.png"))); break;
-    case "Zubat (NR)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Zubat_NR.png"))); break;
-    case "Magikarp (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Magikarp (Shining).png"))); break;    
-    case "Gyarados (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_revelation/Gyarados (Shining).png"))); break;
-    
-        //Neo Destiny
-    case "Ampharos (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Ampharos.png"))); break;    
-    case "Cyndaquil (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Cyndaquil_ND.png"))); break;
-    case "Chansey (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Chansey_ND.png"))); break;    
-    case "Ariados (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Ariados.png"))); break;
-    case "Crobat (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Crobat.png"))); break;
-    case "Croconaw (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Croconaw.png"))); break;    
-    case "Donphan (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Donphan.png"))); break;    
-    case "Espeon (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Espeon.png"))); break;    
-    case "Exeggutor (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Exeggutor.png"))); break;
-    case "Feraligatr (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Feraligatr.png"))); break;    
-    case "Flaaffy (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Flaaffy.png"))); break;
-    case "Forretress (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Forretress.png"))); break;
-    case "Gengar (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Gengar.png"))); break;    
-    case "Haunter (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Haunter.png"))); break;    
-    case "Houndoom (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Houndoom.png"))); break;
-    case "Magcargo (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Magcargo.png"))); break;
-    case "Octillery (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Octillery.png"))); break;
-    case "Omanyte (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Omanyte.png"))); break;
-    case "Omastar (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Omastar.png"))); break;
-    case "Porygon2 (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Porygon2.png"))); break;
-    case "Pupitar (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Pupitar.png"))); break;
-    case "Quilava (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Quilava.png"))); break;
-    case "Scizor (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Scizor.png"))); break;
-    case "Slowking (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Slowking.png"))); break;
-    case "Typhlosion (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Typhlosion.png"))); break;
-    case "Tyranitar (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Tyranitar.png"))); break;
-    case "Ursaring (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Ursaring.png"))); break;
-    case "Wigglytuff (Dark)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dark_Wigglytuff.png"))); break;
-    case "Dratini (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Dratini_NDshed.png"))); break;
-    case "Exeggcute (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Exeggcute_ND.png"))); break;
-    case "Gastly (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Gastly_ND.png"))); break;
-    case "Girafarig (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Girafarig_ND.png"))); break;
-    case "Gligar (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Gligar_NDstunpoison.png"))); break;
-    case "Growlithe (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Growlithe_ND.png"))); break;
-    case "Heracross (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Heracross.png"))); break;
-    case "Hitmonchan (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Hitmonchan_ND.png"))); break;
-    case "Hitmonlee (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Hitmonlee_ND.png"))); break;
-    case "Houndour (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Houndour_ND.png"))); break;
-    case "Jigglypuff (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Jigglypuff_ND.png"))); break;
-    case "Vaporeon (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/LIght_Vaporeon.png"))); break;
-    case "Larvitar (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Larvitar_ND.png"))); break;
-    case "Ledyba (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Ledyba_ND.png"))); break;
-    case "Arcanine (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Arcanine.png"))); break;
-    case "Azumarill (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Azumarill.png"))); break;
-    case "Dewgong (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Dewgong.png"))); break;
-    case "Dragonair (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Dragonair.png"))); break;
-    case "Dragonite (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Dragonite.png"))); break;
-    case "Flareon (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Flareon.png"))); break;
-    case "Golduck (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Golduck.png"))); break;
-    case "Jolteon (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Jolteon.png"))); break;
-    case "Lanturn (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Lanturn.png"))); break;
-    case "Ledian (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Ledian.png"))); break;
-    case "Machamp (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Machamp.png"))); break;
-    case "Machoke (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Machoke.png"))); break;
-    case "Ninetales (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Ninetales.png"))); break;
-    case "Piloswine (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Piloswine.png"))); break;
-    case "Slowbro (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Slowbro.png"))); break;
-    case "Sunflora (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Sunflora.png"))); break;
-    case "Togetic (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Togetic.png"))); break;
-    case "Venomoth (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Venomoth.png"))); break;
-    case "Wigglytuff (Light)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Light_Wigglytuff.png"))); break;
-    case "Machop (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Machop_ND.png"))); break;
-    case "Mantine (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Mantine_ND.png"))); break;
-    case "Mareep (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Mareep_ND.png"))); break;
-    case "Phanpy (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Phanpy_ND.png"))); break;
-    case "Pineco (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Pineco_ND.png"))); break;
-    case "Porygon (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Porygon_ND.png"))); break;
-    case "Psyduck (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Psyduck_ND.png"))); break;
-    case "Remoraid (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Remoraid_ND.png"))); break;
-    case "Scyther (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Scyther_ND.png"))); break;
-    case "Seel (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Seel_ND.png"))); break;
-    case "Celebi (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Celebi.png"))); break;
-    case "Charizard (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Charizard.png"))); break;
-    case "Kabutops (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Kabutops.png"))); break;
-    case "Mewtwo (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Mewtwo.png"))); break;
-    case "Noctowl (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Noctowl.png"))); break;
-    case "Raichu (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Raichu.png"))); break;
-    case "Steelix (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Steelix.png"))); break;
-    case "Tyranitar (Shining)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Shining_Tyranitar.png"))); break;
-    case "Slugma (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Slugma_ND.png"))); break;
-    case "Sunkern (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Sunkern_ND.png"))); break;
-    case "Swinub (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Swinub_ND.png"))); break;
-    case "Togepi (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Togepi_ND.png"))); break;
-    case "Totodile (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Totodile_ND.png"))); break;
-    case "Venonat (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Venonat_ND.png"))); break;
-    case "Vulpix (NDe)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/Vulpix_ND.png"))); break;
-    case "Unown C": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownC_ND.png"))); break;
-    case "Unown G": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownG_ND.png"))); break;    
-    case "Unown H": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownH_ND.png"))); break;
-    case "Unown L": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownL_ND.png"))); break;
-    case "Unown P": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownP_ND.png"))); break;
-    case "Unown Q": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownQ_ND.png"))); break;
-    case "Unown S": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownS_ND.png"))); break;
-    case "Unown T": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownT_ND.png"))); break;
-    case "Unown V": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownV_ND.png"))); break;
-    case "Unown W": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownW_ND.png"))); break;
-    case "Unown X": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownX_ND.png"))); break;
-    case "Unown Z": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neo_destiny/UnownZ_ND.png"))); break;
-    
-    //Promo's and Southern Islands
-    case "Arcanine (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Arcanine (Promo).png"))); break;
-    case "Articuno (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Articuno (Promo).png"))); break;
-    case "Articuno (Promo 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Articuno (Promo 2).png"))); break;
-    case "Butterfree (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Butterfree (SI).png"))); break;
-    case "Cleffa (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Cleffa (Promo).png"))); break;
-    case "Charizard (Premium)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Charizard (Premium).png"))); break;    
-    case "Dragonite (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Dragonite (Promo).png"))); break;
-    case "Eevee (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Eevee (Promo).png"))); break;
-    case "Electabuzz (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Electabuzz (Promo).png"))); break;
-    case "Electabuzz (Promo 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Electabuzz (Promo 2).png"))); break;
-    case "Entei (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Entei (Promo).png"))); break;
-    case "Exeggutor (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Exeggutor (SI).png"))); break;
-    case "Hitmontop (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Hitmontop (Promo).png"))); break;
-    case "Igglybuff (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Igglybuff (Promo).png"))); break;
-    case "Ivysaur (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Ivysaur (SI).png"))); break;
-    case "Jigglypuff (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Jigglypuff (Promo).png"))); break;
-    case "Jigglypuff (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Jigglypuff (SI).png"))); break;
-    case "Lapras (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Lapras (SI).png"))); break;
-    case "Ledyba (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Ledyba (SI).png"))); break;
-    case "Lickitung (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Lickitung (SI).png"))); break;
-    case "Machamp (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Machamp (Promo).png"))); break;
-    case "Magmar (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Magmar (Promo).png"))); break;
-    case "Marill (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Marill (Promo).png"))); break;
-    case "Marill (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Marill (SI).png"))); break;
-    case "Meowth (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Meowth (Promo).png"))); break;
-    case "Meowth (Team Rocket's)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Meowth (Team Rocket's).png"))); break;
-    case "Mew (Ancient)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Mew (Ancient).png"))); break;
-    case "Mew (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Mew (Promo).png"))); break;
-    case "Mew (Promo 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Mew (Promo 2).png"))); break;
-    case "Mew (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Mew (SI).png"))); break;
-    case "Mewtwo (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Mewtwo (Promo).png"))); break;
-    case "Mewtwo (Promo 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Mewtwo (Promo 2).png"))); break;
-    case "Misdreavus (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Misdreavous (Promo).png"))); break;
-    case "Moltres (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Moltres (Promo).png"))); break;
-    case "Onix (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Onix (SI).png"))); break;
-    case "Pichu (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pichu (Promo).png"))); break;
-    case "Pidgeot (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pidgeot (SI).png"))); break;
-    case "Pikachu (Flying)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pikachu (Flying).png"))); break;
-    case "Pikachu (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pikachu (Promo).png"))); break;
-    case "Pikachu (Promo 2)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pikachu (Promo 2).png"))); break;
-    case "Pikachu (Promo 3)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pikachu (Promo 3).png"))); break;
-    case "Pikachu (Promo 4)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pikachu (Promo 4).png"))); break;
-    case "Pikachu (Surfing)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pikachu (Surfing).png"))); break;
-    case "Pikachu (___'s)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Pikachu (___'s).png"))); break;
-    case "Porygon (Cool)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Porygon (Cool).png"))); break;
-    case "Primeape (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Primeape (SI).png"))); break;
-    case "Raticate (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Raticate (SI).png"))); break;
-    case "Scizor (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Scizor (Promo).png"))); break;
-    case "Scyther (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Scyther (Promo).png"))); break;
-    case "Slowking (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Slowking (SI).png"))); break;
-    case "Smeargle (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Smeargle (Promo).png"))); break;
-    case "Snorlax (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Snorlax (Promo).png"))); break;
-    case "Tentacruel (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Tentacruel (SI).png"))); break;
-    case "Togepi (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Togepi (Promo).png"))); break;
-    case "Togepi (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Togepi (SI).png"))); break;
-    case "Unown J (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Unown J (Promo).png"))); break;
-    case "Unown R (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Unown R (Promo).png"))); break;    
-    case "Venusaur (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Venusaur (Promo).png"))); break;
-    case "Vileplume (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Vileplume (SI).png"))); break;
-    case "Wartortle (SI)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Wartortle (SI).png"))); break;
-    case "Zapdos (Promo)": Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Promos/Zapdos (Promo).png"))); break;
-    
-    
-    default: Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); break;
-    
-}// TODO add your handling code here:
-    }
 
     private void TogglePrize(JLabel Prize) {
         if (Prize.getIcon()==null){
@@ -3315,4 +2523,3 @@ TextField.setText(DamageText); //To change body of generated methods, choose Too
     CN.setBackground(Color.LIGHT_GRAY);     //To change body of generated methods, choose Tools | Templates.
     }
 }
-
