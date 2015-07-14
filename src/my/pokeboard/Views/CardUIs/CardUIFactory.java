@@ -50,7 +50,7 @@ public class CardUIFactory
         CardUI[] cards = new CardUI[756]; //There are currently 756 cards in our collection related to Pokemon
         int index = 0;
 
-        cards[index] = new CardUI(null, "/images/base/Back.png", "Active"); ++index;
+        cards[index] = new CardUI(null, "/images/Back.png", "Active"); ++index;
         
         //Base Set
         cards[index] = new CardUI(null, "/images/base/Abra.png", "Abra"); ++index;

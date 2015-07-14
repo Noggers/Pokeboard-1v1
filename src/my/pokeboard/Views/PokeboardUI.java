@@ -2350,121 +2350,125 @@ else
         Energy4.setBackground(Color.lightGray); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void Reset() {
-//Reset Damages        
-JohtoDamageNum.setText("0");        
-JohtoDamageNumB1.setText("0");
-JohtoDamageNumB2.setText("0");
-JohtoDamageNumB3.setText("0");
-JohtoDamageNumB4.setText("0");
-JohtoDamageNumB5.setText("0");
+    private void Reset()
+    {
+        //Reset Damages        
+        JohtoDamageNum.setText("0");        
+        JohtoDamageNumB1.setText("0");
+        JohtoDamageNumB2.setText("0");
+        JohtoDamageNumB3.setText("0");
+        JohtoDamageNumB4.setText("0");
+        JohtoDamageNumB5.setText("0");
 
-KantoDamageNum.setText("0");        
-KantoDamageNumB1.setText("0");
-KantoDamageNumB2.setText("0");
-KantoDamageNumB3.setText("0");
-KantoDamageNumB4.setText("0");
-KantoDamageNumB5.setText("0");
+        KantoDamageNum.setText("0");        
+        KantoDamageNumB1.setText("0");
+        KantoDamageNumB2.setText("0");
+        KantoDamageNumB3.setText("0");
+        KantoDamageNumB4.setText("0");
+        KantoDamageNumB5.setText("0");
 
 
-JohtoActiveEnergy4.setBackground(Color.LIGHT_GRAY);
-JohtoActiveEnergy3.setBackground(Color.LIGHT_GRAY);
-JohtoActiveEnergy2.setBackground(Color.LIGHT_GRAY);
-JohtoActiveEnergy1.setBackground(Color.LIGHT_GRAY);//Johto Active Energies reset
+        JohtoActiveEnergy4.setBackground(Color.LIGHT_GRAY);
+        JohtoActiveEnergy3.setBackground(Color.LIGHT_GRAY);
+        JohtoActiveEnergy2.setBackground(Color.LIGHT_GRAY);
+        JohtoActiveEnergy1.setBackground(Color.LIGHT_GRAY);//Johto Active Energies reset
 
-JohtoBench1Energy4.setBackground(Color.LIGHT_GRAY);
-JohtoBench1Energy3.setBackground(Color.LIGHT_GRAY);
-JohtoBench1Energy2.setBackground(Color.LIGHT_GRAY);
-JohtoBench1Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 1 energy reset
+        JohtoBench1Energy4.setBackground(Color.LIGHT_GRAY);
+        JohtoBench1Energy3.setBackground(Color.LIGHT_GRAY);
+        JohtoBench1Energy2.setBackground(Color.LIGHT_GRAY);
+        JohtoBench1Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 1 energy reset
 
-JohtoBench2Energy4.setBackground(Color.LIGHT_GRAY);
-JohtoBench2Energy3.setBackground(Color.LIGHT_GRAY);
-JohtoBench2Energy2.setBackground(Color.LIGHT_GRAY);
-JohtoBench2Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 2 energy reset
+        JohtoBench2Energy4.setBackground(Color.LIGHT_GRAY);
+        JohtoBench2Energy3.setBackground(Color.LIGHT_GRAY);
+        JohtoBench2Energy2.setBackground(Color.LIGHT_GRAY);
+        JohtoBench2Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 2 energy reset
 
-JohtoBench3Energy4.setBackground(Color.LIGHT_GRAY);
-JohtoBench3Energy3.setBackground(Color.LIGHT_GRAY);
-JohtoBench3Energy2.setBackground(Color.LIGHT_GRAY);
-JohtoBench3Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 3 energy reset
+        JohtoBench3Energy4.setBackground(Color.LIGHT_GRAY);
+        JohtoBench3Energy3.setBackground(Color.LIGHT_GRAY);
+        JohtoBench3Energy2.setBackground(Color.LIGHT_GRAY);
+        JohtoBench3Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 3 energy reset
 
-JohtoBench4Energy4.setBackground(Color.LIGHT_GRAY);
-JohtoBench4Energy3.setBackground(Color.LIGHT_GRAY);
-JohtoBench4Energy2.setBackground(Color.LIGHT_GRAY);
-JohtoBench4Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 4 energy reset
+        JohtoBench4Energy4.setBackground(Color.LIGHT_GRAY);
+        JohtoBench4Energy3.setBackground(Color.LIGHT_GRAY);
+        JohtoBench4Energy2.setBackground(Color.LIGHT_GRAY);
+        JohtoBench4Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 4 energy reset
 
-JohtoBench5Energy4.setBackground(Color.LIGHT_GRAY);
-JohtoBench5Energy3.setBackground(Color.LIGHT_GRAY);
-JohtoBench5Energy2.setBackground(Color.LIGHT_GRAY);
-JohtoBench5Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 5 energy reset
+        JohtoBench5Energy4.setBackground(Color.LIGHT_GRAY);
+        JohtoBench5Energy3.setBackground(Color.LIGHT_GRAY);
+        JohtoBench5Energy2.setBackground(Color.LIGHT_GRAY);
+        JohtoBench5Energy1.setBackground(Color.LIGHT_GRAY);//Johto Bench 5 energy reset
 
-KantoActiveEnergy4.setBackground(Color.LIGHT_GRAY);
-KantoActiveEnergy3.setBackground(Color.LIGHT_GRAY);
-KantoActiveEnergy2.setBackground(Color.LIGHT_GRAY);
-KantoActiveEnergy1.setBackground(Color.LIGHT_GRAY);//Kanto Active energy reset
+        KantoActiveEnergy4.setBackground(Color.LIGHT_GRAY);
+        KantoActiveEnergy3.setBackground(Color.LIGHT_GRAY);
+        KantoActiveEnergy2.setBackground(Color.LIGHT_GRAY);
+        KantoActiveEnergy1.setBackground(Color.LIGHT_GRAY);//Kanto Active energy reset
 
-KantoBench1Energy4.setBackground(Color.LIGHT_GRAY);
-KantoBench1Energy3.setBackground(Color.LIGHT_GRAY);
-KantoBench1Energy2.setBackground(Color.LIGHT_GRAY);
-KantoBench1Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 1 energy reset
+        KantoBench1Energy4.setBackground(Color.LIGHT_GRAY);
+        KantoBench1Energy3.setBackground(Color.LIGHT_GRAY);
+        KantoBench1Energy2.setBackground(Color.LIGHT_GRAY);
+        KantoBench1Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 1 energy reset
 
-KantoBench2Energy4.setBackground(Color.LIGHT_GRAY);
-KantoBench2Energy3.setBackground(Color.LIGHT_GRAY);
-KantoBench2Energy2.setBackground(Color.LIGHT_GRAY);
-KantoBench2Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 2 energy reset
+        KantoBench2Energy4.setBackground(Color.LIGHT_GRAY);
+        KantoBench2Energy3.setBackground(Color.LIGHT_GRAY);
+        KantoBench2Energy2.setBackground(Color.LIGHT_GRAY);
+        KantoBench2Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 2 energy reset
 
-KantoBench3Energy4.setBackground(Color.LIGHT_GRAY);
-KantoBench3Energy3.setBackground(Color.LIGHT_GRAY);
-KantoBench3Energy2.setBackground(Color.LIGHT_GRAY);
-KantoBench3Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 3 energy reset
+        KantoBench3Energy4.setBackground(Color.LIGHT_GRAY);
+        KantoBench3Energy3.setBackground(Color.LIGHT_GRAY);
+        KantoBench3Energy2.setBackground(Color.LIGHT_GRAY);
+        KantoBench3Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 3 energy reset
 
-KantoBench4Energy4.setBackground(Color.LIGHT_GRAY);
-KantoBench4Energy3.setBackground(Color.LIGHT_GRAY);
-KantoBench4Energy2.setBackground(Color.LIGHT_GRAY);
-KantoBench4Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 4 energy reset
+        KantoBench4Energy4.setBackground(Color.LIGHT_GRAY);
+        KantoBench4Energy3.setBackground(Color.LIGHT_GRAY);
+        KantoBench4Energy2.setBackground(Color.LIGHT_GRAY);
+        KantoBench4Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 4 energy reset
 
-KantoBench5Energy4.setBackground(Color.LIGHT_GRAY);
-KantoBench5Energy3.setBackground(Color.LIGHT_GRAY);
-KantoBench5Energy2.setBackground(Color.LIGHT_GRAY);
-KantoBench5Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 5 energy reset
+        KantoBench5Energy4.setBackground(Color.LIGHT_GRAY);
+        KantoBench5Energy3.setBackground(Color.LIGHT_GRAY);
+        KantoBench5Energy2.setBackground(Color.LIGHT_GRAY);
+        KantoBench5Energy1.setBackground(Color.LIGHT_GRAY);//Kanto Bench 5 energy reset
 
-Stadium.setSelectedIndex(0);//Stadium Reset
-KantoActive.setSelectedIndex(0);//Kanto Active Reset
-JohtoActive.setSelectedIndex(0);//Johto Active Reset
-KantoBench1.setSelectedIndex(0);//Kanto Bench 1 Reset
-KantoBench2.setSelectedIndex(0);//Kanto Bench 2 Reset
-KantoBench3.setSelectedIndex(0);//Kanto Bench 3 Reset
-KantoBench4.setSelectedIndex(0);//Kanto Bench 4 Reset
-KantoBench5.setSelectedIndex(0);//Kanto Bench 5 Reset
-JohtoBench1.setSelectedIndex(0);//Johto Bench 1 Reset
-JohtoBench2.setSelectedIndex(0);//Johto Bench 2 Reset
-JohtoBench3.setSelectedIndex(0);//Johto Bench 3 Reset
-JohtoBench4.setSelectedIndex(0);//Johto Bench 4 Reset
-JohtoBench5.setSelectedIndex(0);//Johto Bench 5 Reset
+        Stadium.setSelectedIndex(0);//Stadium Reset
+        KantoActive.setSelectedIndex(0);//Kanto Active Reset
+        JohtoActive.setSelectedIndex(0);//Johto Active Reset
+        KantoBench1.setSelectedIndex(0);//Kanto Bench 1 Reset
+        KantoBench2.setSelectedIndex(0);//Kanto Bench 2 Reset
+        KantoBench3.setSelectedIndex(0);//Kanto Bench 3 Reset
+        KantoBench4.setSelectedIndex(0);//Kanto Bench 4 Reset
+        KantoBench5.setSelectedIndex(0);//Kanto Bench 5 Reset
+        JohtoBench1.setSelectedIndex(0);//Johto Bench 1 Reset
+        JohtoBench2.setSelectedIndex(0);//Johto Bench 2 Reset
+        JohtoBench3.setSelectedIndex(0);//Johto Bench 3 Reset
+        JohtoBench4.setSelectedIndex(0);//Johto Bench 4 Reset
+        JohtoBench5.setSelectedIndex(0);//Johto Bench 5 Reset
 
-//Reset Statuses
-ResetStatuses(JohtoBR, JohtoPO, JohtoPZ, JohtoSL, JohtoCN);
-ResetStatuses(KantoBR, KantoPO, KantoPZ, KantoSL, KantoCN);
+        //Reset Statuses
+        ResetStatuses(JohtoBR, JohtoPO, JohtoPZ, JohtoSL, JohtoCN);
+        ResetStatuses(KantoBR, KantoPO, KantoPZ, KantoSL, KantoCN);
 
-//Reset Prizes
-JohtoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-JohtoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-JohtoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-JohtoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-JohtoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-JohtoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-KantoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-KantoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-KantoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-KantoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-KantoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-KantoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-//To change body of generated methods, choose Tools | Templates.
+        //Reset Prizes
+        JohtoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        JohtoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        JohtoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        JohtoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        JohtoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        JohtoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        KantoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        KantoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        KantoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        KantoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        KantoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        KantoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+        //To change body of generated methods, choose Tools | Templates.
     }
-    private void PokeSwitch(JComboBox Bench, JComboBox Active) {
-         String SwitchName1 = (String)Active.getSelectedItem();
-         String SwitchName2 = (String)Bench.getSelectedItem();
-        Active.setSelectedItem(SwitchName2);
-        Bench.setSelectedItem(SwitchName1);//To change body of generated methods, choose Tools | Templates.
+    private void PokeSwitch(JComboBox Bench, JComboBox Active)
+    {
+//         String SwitchName1 = (String)Active.getSelectedItem();
+//         String SwitchName2 = (String)Bench.getSelectedItem();
+        CardUI currentActive = (CardUI)Active.getSelectedItem();
+        CardUI currentBench = (CardUI)Bench.getSelectedItem();
+        Active.setSelectedItem(currentBench);
+        Bench.setSelectedItem(currentActive);//To change body of generated methods, choose Tools | Templates.
     }
     private void DamageSwitch(JTextField Bench, JTextField Active){
     String BenchDam = Bench.getText();
