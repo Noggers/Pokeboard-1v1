@@ -28,13 +28,13 @@ public class CardUI
         return title;
     }
     
-    public String GetTitle()
+    public String getTitle()
     {
         return title;
     }
         
     private javax.swing.ImageIcon _Icon;
-    public javax.swing.ImageIcon GetIcon()
+    public javax.swing.ImageIcon getIcon()
     {
         if(_Icon == null)
         {
