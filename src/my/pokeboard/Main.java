@@ -5,7 +5,6 @@
  */
 package my.pokeboard;
 
-import java.util.Arrays;
 import my.pokeboard.Views.PokeboardUI;
 
 /**
