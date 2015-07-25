@@ -11,7 +11,7 @@ package my.pokeboard.Views.CardUIs;
  */
 public class CardUIFactory
 {
-    public static CardUI[] GenerateAllStadiumCards()
+    public static CardUI[] generateAllStadiumCards()
     {
         CardUI[] cards = new CardUI[25]; //There are currently 756 cards in our collection related to Pokemon
         int index = 0;
@@ -45,7 +45,7 @@ public class CardUIFactory
         return cards;
     }
     
-    public static CardUI[] GenerateAllPokemonCards()
+    public static CardUI[] generateAllPokemonCards()
     {
         CardUI[] cards = new CardUI[756]; //There are currently 756 cards in our collection related to Pokemon
         int index = 0;

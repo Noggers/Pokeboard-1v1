@@ -18,11 +18,11 @@ public class Main
      */
     public static void main(String args[])
     {
-        SetApplicationStyle();
+        setApplicationStyle();
         java.awt.EventQueue.invokeLater(() -> new PokeboardUI().setVisible(true));
     }
     
-    private static void SetApplicationStyle()
+    private static void setApplicationStyle()
     {
         // We search for the Nimbus look and feel
         // If it's not available, we just use the default
