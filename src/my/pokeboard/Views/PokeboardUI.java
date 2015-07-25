@@ -591,11 +591,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				KantoActiveItemStateChanged(evt);
 			}
 		});
-		KantoActive.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoActiveActionPerformed(evt);
-			}
-		});
 		AutoCompleteDecorator.decorate(KantoActive);
 		Background.add(KantoActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 210, 20));
 
@@ -652,11 +647,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				JohtoPlusMouseClicked(evt);
 			}
 		});
-		JohtoPlus.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoPlusActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
 		Background.setLayer(JohtoPlus, 2);
 
@@ -672,57 +662,27 @@ public class PokeboardUI extends javax.swing.JFrame {
 
 		JohtoDamageNumB5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		JohtoDamageNumB5.setText("0");
-		JohtoDamageNumB5.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoDamageNumB5ActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoDamageNumB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, 40, -1));
 
 		JohtoDamageNum.setEditable(false);
 		JohtoDamageNum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		JohtoDamageNum.setText("0");
-		JohtoDamageNum.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoDamageNumActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoDamageNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 40, -1));
 
 		JohtoDamageNumB4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		JohtoDamageNumB4.setText("0");
-		JohtoDamageNumB4.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoDamageNumB4ActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoDamageNumB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 40, -1));
 
 		JohtoDamageNumB3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		JohtoDamageNumB3.setText("0");
-		JohtoDamageNumB3.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoDamageNumB3ActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoDamageNumB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 40, -1));
 
 		JohtoDamageNumB2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		JohtoDamageNumB2.setText("0");
-		JohtoDamageNumB2.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoDamageNumB2ActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoDamageNumB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 40, -1));
 
 		JohtoDamageNumB1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		JohtoDamageNumB1.setText("0");
-		JohtoDamageNumB1.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoDamageNumB1ActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoDamageNumB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 40, -1));
 
 		KantoPlus.setBackground(new java.awt.Color(255, 255, 255));
@@ -730,11 +690,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		KantoPlus.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				KantoPlusMouseClicked(evt);
-			}
-		});
-		KantoPlus.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoPlusActionPerformed(evt);
 			}
 		});
 		Background.add(KantoPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, -1, -1));
@@ -757,47 +712,22 @@ public class PokeboardUI extends javax.swing.JFrame {
 
 		KantoDamageNumB5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		KantoDamageNumB5.setText("0");
-		KantoDamageNumB5.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoDamageNumB5ActionPerformed(evt);
-			}
-		});
 		Background.add(KantoDamageNumB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 640, 40, -1));
 
 		KantoDamageNumB4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		KantoDamageNumB4.setText("0");
-		KantoDamageNumB4.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoDamageNumB4ActionPerformed(evt);
-			}
-		});
 		Background.add(KantoDamageNumB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 640, 40, -1));
 
 		KantoDamageNumB3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		KantoDamageNumB3.setText("0");
-		KantoDamageNumB3.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoDamageNumB3ActionPerformed(evt);
-			}
-		});
 		Background.add(KantoDamageNumB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, 40, -1));
 
 		KantoDamageNumB2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		KantoDamageNumB2.setText("0");
-		KantoDamageNumB2.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoDamageNumB2ActionPerformed(evt);
-			}
-		});
 		Background.add(KantoDamageNumB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 640, 40, -1));
 
 		KantoDamageNumB1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		KantoDamageNumB1.setText("0");
-		KantoDamageNumB1.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoDamageNumB1ActionPerformed(evt);
-			}
-		});
 		Background.add(KantoDamageNumB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, 40, -1));
 		Background.add(StadiumCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 186, 260));
 
@@ -980,11 +910,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				KantoBench2Energy4MouseClicked(evt);
 			}
 		});
-		KantoBench2Energy4.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoBench2Energy4ActionPerformed(evt);
-			}
-		});
 		Background.add(KantoBench2Energy4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 600, 30, 20));
 		Background.setLayer(KantoBench2Energy4, 4);
 
@@ -1118,11 +1043,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				KantoBRMouseClicked(evt);
 			}
 		});
-		KantoBR.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoBRActionPerformed(evt);
-			}
-		});
 		Background.add(KantoBR, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, -1, -1));
 		Background.setLayer(KantoBR, 2);
 
@@ -1164,11 +1084,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				KantoBench5SwitchMouseClicked(evt);
 			}
 		});
-		KantoBench5Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoBench5SwitchActionPerformed(evt);
-			}
-		});
 		Background.add(KantoBench5Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, 40, 30));
 		Background.setLayer(KantoBench5Switch, 2);
 
@@ -1178,11 +1093,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		KantoBench4Switch.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				KantoBench4SwitchMouseClicked(evt);
-			}
-		});
-		KantoBench4Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoBench4SwitchActionPerformed(evt);
 			}
 		});
 		Background.add(KantoBench4Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 640, 40, 30));
@@ -1196,11 +1106,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				KantoBench3SwitchMouseClicked(evt);
 			}
 		});
-		KantoBench3Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoBench3SwitchActionPerformed(evt);
-			}
-		});
 		Background.add(KantoBench3Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 640, 40, 30));
 		Background.setLayer(KantoBench3Switch, 2);
 
@@ -1210,11 +1115,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		KantoBench2Switch.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				KantoBench2SwitchMouseClicked(evt);
-			}
-		});
-		KantoBench2Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoBench2SwitchActionPerformed(evt);
 			}
 		});
 		Background.add(KantoBench2Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 640, 40, 30));
@@ -1228,11 +1128,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				KantoBench1SwitchMouseClicked(evt);
 			}
 		});
-		KantoBench1Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoBench1SwitchActionPerformed(evt);
-			}
-		});
 		Background.add(KantoBench1Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 40, 30));
 		Background.setLayer(KantoBench1Switch, 2);
 
@@ -1242,11 +1137,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		JohtoBench5Switch.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				JohtoBench5SwitchMouseClicked(evt);
-			}
-		});
-		JohtoBench5Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoBench5SwitchActionPerformed(evt);
 			}
 		});
 		Background.add(JohtoBench5Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, 40, 30));
@@ -1260,11 +1150,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				JohtoBench4SwitchMouseClicked(evt);
 			}
 		});
-		JohtoBench4Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoBench4SwitchActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoBench4Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 40, 30));
 		Background.setLayer(JohtoBench4Switch, 2);
 
@@ -1274,11 +1159,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		JohtoBench3Switch.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				JohtoBench3SwitchMouseClicked(evt);
-			}
-		});
-		JohtoBench3Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoBench3SwitchActionPerformed(evt);
 			}
 		});
 		Background.add(JohtoBench3Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 40, 30));
@@ -1292,11 +1172,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				JohtoBench2SwitchMouseClicked(evt);
 			}
 		});
-		JohtoBench2Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoBench2SwitchActionPerformed(evt);
-			}
-		});
 		Background.add(JohtoBench2Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 40, 30));
 		Background.setLayer(JohtoBench2Switch, 2);
 
@@ -1306,11 +1181,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		JohtoBench1Switch.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				JohtoBench1SwitchMouseClicked(evt);
-			}
-		});
-		JohtoBench1Switch.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoBench1SwitchActionPerformed(evt);
 			}
 		});
 		Background.add(JohtoBench1Switch, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 40, 30));
@@ -1325,11 +1195,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 				KantoClearMouseClicked(evt);
 			}
 		});
-		KantoClear.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				KantoClearActionPerformed(evt);
-			}
-		});
 		Background.add(KantoClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 480, -1, -1));
 		Background.setLayer(KantoClear, 2);
 
@@ -1339,11 +1204,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		JohtoClear.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				JohtoClearMouseClicked(evt);
-			}
-		});
-		JohtoClear.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				JohtoClearActionPerformed(evt);
 			}
 		});
 		Background.add(JohtoClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, -1));
@@ -1366,219 +1226,99 @@ public class PokeboardUI extends javax.swing.JFrame {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void JohtoBench1Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench1Energy1MouseClicked
-		OneEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench1Energy1MouseClicked
 
 	private void JohtoBench1Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench1Energy4MouseClicked
-		FourEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		FourEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench1Energy4MouseClicked
 
 	private void JohtoBench1Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench1Energy3MouseClicked
-		ThreeEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		ThreeEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench1Energy3MouseClicked
 
 	private void JohtoBench1Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench1Energy2MouseClicked
-		TwoEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, Color.BLACK);
 	}// GEN-LAST:event_JohtoBench1Energy2MouseClicked
 
 	private void JohtoBench2Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench2Energy1MouseClicked
-		OneEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench2Energy1MouseClicked
 
 	private void JohtoBench2Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench2Energy2MouseClicked
-		TwoEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench2Energy2MouseClicked
 
 	private void JohtoBench2Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench2Energy3MouseClicked
-		ThreeEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		ThreeEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench2Energy3MouseClicked
 
 	private void JohtoBench2Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench2Energy4MouseClicked
-		FourEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		FourEnergy(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench2Energy4MouseClicked
 
 	private void JohtoBench3Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench3Energy1MouseClicked
-		OneEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench3Energy1MouseClicked
 
 	private void JohtoBench3Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench3Energy2MouseClicked
-		TwoEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench3Energy2MouseClicked
 
 	private void JohtoBench3Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench3Energy3MouseClicked
-		ThreeEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		ThreeEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench3Energy3MouseClicked
 
 	private void JohtoBench3Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench3Energy4MouseClicked
-		FourEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		FourEnergy(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench3Energy4MouseClicked
 
 	private void JohtoBench4Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench4Energy1MouseClicked
-		OneEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench4Energy1MouseClicked
 
 	private void JohtoBench4Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench4Energy2MouseClicked
-		TwoEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench4Energy2MouseClicked
 
 	private void JohtoBench4Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench4Energy3MouseClicked
-		ThreeEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		ThreeEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench4Energy3MouseClicked
 
 	private void JohtoBench4Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench4Energy4MouseClicked
-		FourEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		FourEnergy(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench4Energy4MouseClicked
 
 	private void JohtoBench5Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench5Energy1MouseClicked
-		OneEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench5Energy1MouseClicked
 
 	private void JohtoBench5Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench5Energy2MouseClicked
-		TwoEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench5Energy2MouseClicked
 
 	private void JohtoBench5Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench5Energy3MouseClicked
-		ThreeEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		ThreeEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench5Energy3MouseClicked
 
 	private void JohtoBench5Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench5Energy4MouseClicked
-		FourEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		FourEnergy(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench5Energy4MouseClicked
 
 	private void JohtoActiveEnergy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoActiveEnergy1MouseClicked
-		OneEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoActiveEnergy1MouseClicked
 
 	private void JohtoActiveEnergy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoActiveEnergy2MouseClicked
-		TwoEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoActiveEnergy2MouseClicked
 
 	private void JohtoActiveEnergy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoActiveEnergy3MouseClicked
-		ThreeEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		ThreeEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoActiveEnergy3MouseClicked
 
 	private void JohtoActiveEnergy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoActiveEnergy4MouseClicked
-		FourEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																													// add
-																													// your
-																													// handling
-																													// code
-																													// here:
+		FourEnergy(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoActiveEnergy4MouseClicked
 
 	private void JohtoBench2Energy4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoBench2Energy4ActionPerformed
@@ -1586,223 +1326,99 @@ public class PokeboardUI extends javax.swing.JFrame {
 	}// GEN-LAST:event_JohtoBench2Energy4ActionPerformed
 
 	private void KantoActiveEnergy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoActiveEnergy1MouseClicked
-		OneEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoActiveEnergy1MouseClicked
 
 	private void KantoActiveEnergy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoActiveEnergy2MouseClicked
-		TwoEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoActiveEnergy2MouseClicked
 
 	private void KantoActiveEnergy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoActiveEnergy3MouseClicked
-		ThreeEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		ThreeEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoActiveEnergy3MouseClicked
 
 	private void KantoActiveEnergy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoActiveEnergy4MouseClicked
-		FourEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		FourEnergy(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoActiveEnergy4MouseClicked
 
 	private void KantoBench5Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench5Energy4MouseClicked
-		FourEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		FourEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench5Energy4MouseClicked
 
 	private void KantoBench5Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench5Energy3MouseClicked
-		ThreeEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		ThreeEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench5Energy3MouseClicked
 
 	private void KantoBench5Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench5Energy2MouseClicked
-		TwoEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench5Energy2MouseClicked
 
 	private void KantoBench5Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench5Energy1MouseClicked
-		OneEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench5Energy1MouseClicked
 
 	private void KantoBench4Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench4Energy4MouseClicked
-		FourEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		FourEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench4Energy4MouseClicked
 
 	private void KantoBench4Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench4Energy3MouseClicked
-		ThreeEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		ThreeEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench4Energy3MouseClicked
 
 	private void KantoBench4Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench4Energy2MouseClicked
-		TwoEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench4Energy2MouseClicked
 
 	private void KantoBench4Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench4Energy1MouseClicked
-		OneEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench4Energy1MouseClicked
 
 	private void KantoBench3Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench3Energy4MouseClicked
-		FourEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		FourEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench3Energy4MouseClicked
 
 	private void KantoBench3Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench3Energy3MouseClicked
-		ThreeEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		ThreeEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench3Energy3MouseClicked
 
 	private void KantoBench3Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench3Energy2MouseClicked
-		TwoEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench3Energy2MouseClicked
 
 	private void KantoBench3Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench3Energy1MouseClicked
-		OneEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench3Energy1MouseClicked
 
 	private void KantoBench2Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench2Energy4MouseClicked
-		FourEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		FourEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench2Energy4MouseClicked
 
-	private void KantoBench2Energy4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoBench2Energy4ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoBench2Energy4ActionPerformed
-
 	private void KantoBench2Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench2Energy3MouseClicked
-		ThreeEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		ThreeEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench2Energy3MouseClicked
 
 	private void KantoBench2Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench2Energy2MouseClicked
-		TwoEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench2Energy2MouseClicked
 
 	private void KantoBench2Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench2Energy1MouseClicked
-		OneEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench2Energy1MouseClicked
 
 	private void KantoBench1Energy4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench1Energy4MouseClicked
-		FourEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		FourEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench1Energy4MouseClicked
 
 	private void KantoBench1Energy3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench1Energy3MouseClicked
-		ThreeEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		ThreeEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench1Energy3MouseClicked
 
 	private void KantoBench1Energy2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench1Energy2MouseClicked
-		TwoEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		TwoEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench1Energy2MouseClicked
 
 	private void KantoBench1Energy1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench1Energy1MouseClicked
-		OneEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); // TODO
-																												// add
-																												// your
-																												// handling
-																												// code
-																												// here:
+		OneEnergy(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench1Energy1MouseClicked
 
 	private void ClearButtonMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_ClearButtonMouseClicked
@@ -1905,10 +1521,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		} // TODO add your handling code here:
 	}// GEN-LAST:event_KantoPZMouseClicked
 
-	private void KantoBRActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoBRActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoBRActionPerformed
-
 	private void JohtoPlusMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoPlusMouseClicked
 		AddDamage(JohtoDamageNum); // TODO add your handling code here:
 	}// GEN-LAST:event_JohtoPlusMouseClicked
@@ -1917,10 +1529,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		SubtractDamage(JohtoDamageNum); // TODO add your handling code here:
 	}// GEN-LAST:event_JohtoMinusMouseClicked
 
-	private void JohtoDamageNumB5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoDamageNumB5ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoDamageNumB5ActionPerformed
-
 	private void KantoPlusMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoPlusMouseClicked
 		AddDamage(KantoDamageNum); // TODO add your handling code here:
 	}// GEN-LAST:event_KantoPlusMouseClicked
@@ -1928,58 +1536,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 	private void KantoMinusMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoMinusMouseClicked
 		SubtractDamage(KantoDamageNum); // TODO add your handling code here:
 	}// GEN-LAST:event_KantoMinusMouseClicked
-
-	private void KantoPlusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoPlusActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoPlusActionPerformed
-
-	private void JohtoDamageNumActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoDamageNumActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoDamageNumActionPerformed
-
-	private void JohtoDamageNumB4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoDamageNumB4ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoDamageNumB4ActionPerformed
-
-	private void JohtoDamageNumB3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoDamageNumB3ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoDamageNumB3ActionPerformed
-
-	private void JohtoDamageNumB2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoDamageNumB2ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoDamageNumB2ActionPerformed
-
-	private void JohtoDamageNumB1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoDamageNumB1ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoDamageNumB1ActionPerformed
-
-	private void JohtoPlusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoPlusActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoPlusActionPerformed
-
-	private void KantoDamageNumB5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoDamageNumB5ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoDamageNumB5ActionPerformed
-
-	private void KantoDamageNumB4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoDamageNumB4ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoDamageNumB4ActionPerformed
-
-	private void KantoDamageNumB3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoDamageNumB3ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoDamageNumB3ActionPerformed
-
-	private void KantoDamageNumB2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoDamageNumB2ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoDamageNumB2ActionPerformed
-
-	private void KantoDamageNumB1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoDamageNumB1ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoDamageNumB1ActionPerformed
-
-	private void KantoActiveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoActiveActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoActiveActionPerformed
 
 	private void KantoActiveItemStateChanged(java.awt.event.ItemEvent evt) {
 		// GEN-FIRST:event_KantoActiveItemStateChanged
@@ -2007,153 +1563,68 @@ public class PokeboardUI extends javax.swing.JFrame {
 		// TODO add your handling code here:
 	}// GEN-LAST:event_JohtoBench1SwitchMouseClicked
 
-	private void JohtoBench1SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoBench1SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoBench1SwitchActionPerformed
-
 	private void JohtoBench2SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench2SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB2, JohtoDamageNum);
 		PokeSwitch(JohtoBench2, JohtoActive);
 		EnergySwitch(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, JohtoActiveEnergy1,
-				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																							// add
-																							// your
-																							// handling
-																							// code
-																							// here:
+				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench2SwitchMouseClicked
-
-	private void JohtoBench2SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoBench2SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoBench2SwitchActionPerformed
 
 	private void JohtoBench3SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench3SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB3, JohtoDamageNum);
 		PokeSwitch(JohtoBench3, JohtoActive);
 		EnergySwitch(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, JohtoActiveEnergy1,
-				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																							// add
-																							// your
-																							// handling
-																							// code
-																							// here:
+				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench3SwitchMouseClicked
-
-	private void JohtoBench3SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoBench3SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoBench3SwitchActionPerformed
 
 	private void JohtoBench4SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench4SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB4, JohtoDamageNum);
 		PokeSwitch(JohtoBench4, JohtoActive);
 		EnergySwitch(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, JohtoActiveEnergy1,
-				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																							// add
-																							// your
-																							// handling
-																							// code
-																							// here:
+				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench4SwitchMouseClicked
-
-	private void JohtoBench4SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoBench4SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoBench4SwitchActionPerformed
 
 	private void JohtoBench5SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoBench5SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB5, JohtoDamageNum);
 		PokeSwitch(JohtoBench5, JohtoActive);
 		EnergySwitch(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, JohtoActiveEnergy1,
-				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); // TODO
-																							// add
-																							// your
-																							// handling
-																							// code
-																							// here:
+				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK); 
 	}// GEN-LAST:event_JohtoBench5SwitchMouseClicked
-
-	private void JohtoBench5SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoBench5SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoBench5SwitchActionPerformed
 
 	private void KantoBench1SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench1SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB1, KantoDamageNum);
 		PokeSwitch(KantoBench1, KantoActive);
 		EnergySwitch(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, KantoActiveEnergy1,
-				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																						// add
-																						// your
-																						// handling
-																						// code
-																						// here:
+				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench1SwitchMouseClicked
-
-	private void KantoBench1SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoBench1SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoBench1SwitchActionPerformed
 
 	private void KantoBench2SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench2SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB2, KantoDamageNum);
 		PokeSwitch(KantoBench2, KantoActive);
 		EnergySwitch(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, KantoActiveEnergy1,
-				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																						// add
-																						// your
-																						// handling
-																						// code
-																						// here:
+				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench2SwitchMouseClicked
-
-	private void KantoBench2SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoBench2SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoBench2SwitchActionPerformed
 
 	private void KantoBench3SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench3SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB3, KantoDamageNum);
 		PokeSwitch(KantoBench3, KantoActive);
 		EnergySwitch(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, KantoActiveEnergy1,
-				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																						// add
-																						// your
-																						// handling
-																						// code
-																						// here:
+				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench3SwitchMouseClicked
-
-	private void KantoBench3SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoBench3SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoBench3SwitchActionPerformed
 
 	private void KantoBench4SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench4SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB4, KantoDamageNum);
 		PokeSwitch(KantoBench4, KantoActive);
 		EnergySwitch(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, KantoActiveEnergy1,
-				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																						// add
-																						// your
-																						// handling
-																						// code
-																						// here:
+				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench4SwitchMouseClicked
-
-	private void KantoBench4SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoBench4SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoBench4SwitchActionPerformed
 
 	private void KantoBench5SwitchMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_KantoBench5SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB5, KantoDamageNum);
 		PokeSwitch(KantoBench5, KantoActive);
 		EnergySwitch(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, KantoActiveEnergy1,
-				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); // TODO
-																						// add
-																						// your
-																						// handling
-																						// code
-																						// here:
+				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED); 
 	}// GEN-LAST:event_KantoBench5SwitchMouseClicked
-
-	private void KantoBench5SwitchActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoBench5SwitchActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoBench5SwitchActionPerformed
 
 	private void JohtoActiveItemStateChanged(java.awt.event.ItemEvent evt) {
 		// GEN-FIRST:event_JohtoActiveItemStateChanged
@@ -2226,14 +1697,6 @@ public class PokeboardUI extends javax.swing.JFrame {
 		JohtoDamageNum.setText("0");
 		// TODO add your handling code here:
 	}// GEN-LAST:event_JohtoClearMouseClicked
-
-	private void KantoClearActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_KantoClearActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_KantoClearActionPerformed
-
-	private void JohtoClearActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JohtoClearActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_JohtoClearActionPerformed
 
 	private void JohtoCardMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_JohtoCardMouseClicked
 		JohtoActiveCard.setVisible(true);
