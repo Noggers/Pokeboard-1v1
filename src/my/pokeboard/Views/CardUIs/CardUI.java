@@ -10,7 +10,9 @@ import my.pokeboard.Models.*;
  * @author Michael
  */
 public class CardUI
-{    
+{
+	private static final String IMAGE_EXTENSION = ".png";
+	private static final String ZOOM_SUFFIX = "ZOOM";
     private String iconPath;
     private String title;
     private CardBase cardModel;
@@ -38,8 +40,25 @@ public class CardUI
     {
         if(_Icon == null)
         {
-            _Icon = new javax.swing.ImageIcon(getClass().getResource(iconPath));
+            _Icon = new javax.swing.ImageIcon(getClass().getResource(iconPath + IMAGE_EXTENSION));
         }
         return _Icon;
+    }
+    
+    private javax.swing.ImageIcon _ZoomIcon;
+    public javax.swing.ImageIcon getZoomIcon()
+    {
+    	if(_ZoomIcon == null)
+    	{
+    		String url = iconPath + ZOOM_SUFFIX + IMAGE_EXTENSION;
+    		java.net.URL resource = getClass().getResource(url);
+    		if(resource == null)
+    		{
+    			url = iconPath + "Zoom" + IMAGE_EXTENSION;
+    			resource = getClass().getResource(url);
+    		}
+    		_ZoomIcon = new javax.swing.ImageIcon(resource);
+    	}
+		return _ZoomIcon;
     }
 }

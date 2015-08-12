@@ -41,11 +41,15 @@ public class PokeboardUI extends JFrame
 	// Code">//GEN-BEGIN:initComponents
 	private void initComponents()
 	{
+		JohtoActiveZoom = new javax.swing.JLabel();
+		KantoActiveZoom = new javax.swing.JLabel();
 		JohtoActiveCard = new javax.swing.JFrame();
+		KantoActiveCard = new javax.swing.JFrame();
+
 		JohtoActivePic = new javax.swing.JLabel();
 		Background = new javax.swing.JLayeredPane();
 		Stadium = new javax.swing.JComboBox<CardUI>();
-		JohtoActive = new javax.swing.JComboBox<CardUI>();
+		JohtoActiveComboBox = new javax.swing.JComboBox<CardUI>();
 		JohtoPrize1 = new javax.swing.JLabel();
 		JohtoPrize2 = new javax.swing.JLabel();
 		JohtoPrize3 = new javax.swing.JLabel();
@@ -62,37 +66,37 @@ public class PokeboardUI extends JFrame
 		JohtoActiveEnergy2 = new javax.swing.JButton();
 		JohtoActiveEnergy3 = new javax.swing.JButton();
 		JohtoActiveEnergy4 = new javax.swing.JButton();
-		JohtoBench5 = new javax.swing.JComboBox<CardUI>();
+		JohtoBench5ComboBox = new javax.swing.JComboBox<CardUI>();
 		JohtoBench5Energy1 = new javax.swing.JButton();
 		JohtoBench5Energy2 = new javax.swing.JButton();
 		JohtoBench5Energy3 = new javax.swing.JButton();
 		JohtoBench5Energy4 = new javax.swing.JButton();
-		JohtoBench4 = new javax.swing.JComboBox<CardUI>();
+		JohtoBench4ComboBox = new javax.swing.JComboBox<CardUI>();
 		JohtoBench4Energy1 = new javax.swing.JButton();
 		JohtoBench4Energy2 = new javax.swing.JButton();
 		JohtoBench4Energy3 = new javax.swing.JButton();
 		JohtoBench4Energy4 = new javax.swing.JButton();
-		JohtoBench3 = new javax.swing.JComboBox<CardUI>();
+		JohtoBench3ComboBox = new javax.swing.JComboBox<CardUI>();
 		JohtoBench3Energy1 = new javax.swing.JButton();
 		JohtoBench3Energy2 = new javax.swing.JButton();
 		JohtoBench3Energy3 = new javax.swing.JButton();
 		JohtoBench3Energy4 = new javax.swing.JButton();
-		JohtoBench2 = new javax.swing.JComboBox<CardUI>();
+		JohtoBench2ComboBox = new javax.swing.JComboBox<CardUI>();
 		JohtoBench2Energy1 = new javax.swing.JButton();
 		JohtoBench2Energy2 = new javax.swing.JButton();
 		JohtoBench2Energy3 = new javax.swing.JButton();
 		JohtoBench2Energy4 = new javax.swing.JButton();
-		JohtoBench1 = new javax.swing.JComboBox<CardUI>();
+		JohtoBench1ComboBox = new javax.swing.JComboBox<CardUI>();
 		JohtoBench1Energy4 = new javax.swing.JButton();
 		JohtoBench1Energy3 = new javax.swing.JButton();
 		JohtoBench1Energy2 = new javax.swing.JButton();
 		JohtoBench1Energy1 = new javax.swing.JButton();
-		KantoActive = new javax.swing.JComboBox<CardUI>();
-		KantoBench1 = new javax.swing.JComboBox<CardUI>();
-		KantoBench2 = new javax.swing.JComboBox<CardUI>();
-		KantoBench3 = new javax.swing.JComboBox<CardUI>();
-		KantoBench4 = new javax.swing.JComboBox<CardUI>();
-		KantoBench5 = new javax.swing.JComboBox<CardUI>();
+		KantoActiveComboBox = new javax.swing.JComboBox<CardUI>();
+		KantoBench1ComboBox = new javax.swing.JComboBox<CardUI>();
+		KantoBench2ComboBox = new javax.swing.JComboBox<CardUI>();
+		KantoBench3ComboBox = new javax.swing.JComboBox<CardUI>();
+		KantoBench4ComboBox = new javax.swing.JComboBox<CardUI>();
+		KantoBench5ComboBox = new javax.swing.JComboBox<CardUI>();
 		ClearButton = new javax.swing.JButton();
 		JohtoPlus = new javax.swing.JButton();
 		JohtoMinus = new javax.swing.JButton();
@@ -165,6 +169,18 @@ public class PokeboardUI extends JFrame
 
 		JohtoActivePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
 
+        JohtoActiveCard.setAlwaysOnTop(true);
+        JohtoActiveCard.setMinimumSize(new java.awt.Dimension(425, 575));
+        JohtoActiveCard.setPreferredSize(new java.awt.Dimension(425, 575));
+        JohtoActiveCard.setSize(new java.awt.Dimension(425, 575));
+        JohtoActiveCard.setType(java.awt.Window.Type.UTILITY);
+
+        KantoActiveCard.setAlwaysOnTop(true);
+        KantoActiveCard.setMinimumSize(new java.awt.Dimension(425, 575));
+        KantoActiveCard.setPreferredSize(new java.awt.Dimension(425, 575));
+        KantoActiveCard.setSize(new java.awt.Dimension(425, 575));
+        KantoActiveCard.setType(java.awt.Window.Type.UTILITY);
+
 		javax.swing.GroupLayout JohtoActiveCardLayout = new javax.swing.GroupLayout(JohtoActiveCard.getContentPane());
 		JohtoActiveCard.getContentPane().setLayout(JohtoActiveCardLayout);
 		JohtoActiveCardLayout.setHorizontalGroup(JohtoActiveCardLayout
@@ -172,15 +188,33 @@ public class PokeboardUI extends JFrame
 				.addGroup(JohtoActiveCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
 						javax.swing.GroupLayout.Alignment.TRAILING,
 						JohtoActiveCardLayout.createSequentialGroup().addContainerGap(36, Short.MAX_VALUE)
-								.addComponent(JohtoActivePic, javax.swing.GroupLayout.PREFERRED_SIZE, 173,
+								.addComponent(JohtoActiveZoom, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(191, Short.MAX_VALUE))));
+		JohtoActiveCardLayout.setVerticalGroup(JohtoActiveCardLayout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 300, Short.MAX_VALUE)
+				.addGroup(JohtoActiveCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(JohtoActiveCardLayout.createSequentialGroup()
+								.addComponent(JohtoActiveZoom, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(0, 30, Short.MAX_VALUE))));
+
+		javax.swing.GroupLayout KantoActiveCardLayout = new javax.swing.GroupLayout(KantoActiveCard.getContentPane());
+		KantoActiveCard.getContentPane().setLayout(KantoActiveCardLayout);
+		KantoActiveCardLayout.setHorizontalGroup(KantoActiveCardLayout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 400, Short.MAX_VALUE)
+				.addGroup(KantoActiveCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+						javax.swing.GroupLayout.Alignment.TRAILING,
+						KantoActiveCardLayout.createSequentialGroup().addContainerGap(36, Short.MAX_VALUE)
+								.addComponent(KantoActiveZoom, javax.swing.GroupLayout.PREFERRED_SIZE, 400,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addContainerGap(191, Short.MAX_VALUE))));
-		JohtoActiveCardLayout
-				.setVerticalGroup(JohtoActiveCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		KantoActiveCardLayout
+				.setVerticalGroup(KantoActiveCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGap(0, 300, Short.MAX_VALUE)
-						.addGroup(JohtoActiveCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(JohtoActiveCardLayout.createSequentialGroup()
-										.addComponent(JohtoActivePic, javax.swing.GroupLayout.PREFERRED_SIZE, 270,
+						.addGroup(KantoActiveCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(KantoActiveCardLayout.createSequentialGroup()
+										.addComponent(KantoActiveZoom, javax.swing.GroupLayout.PREFERRED_SIZE, 551,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addGap(0, 30, Short.MAX_VALUE))));
 
@@ -207,19 +241,29 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(Stadium, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 150, 20));
 
-		JohtoActive.setEditable(true);
+		JohtoActiveZoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		JohtoActiveZoom.setMaximumSize(new java.awt.Dimension(400, 551));
+		JohtoActiveZoom.setMinimumSize(new java.awt.Dimension(400, 551));
+		JohtoActiveZoom.setPreferredSize(new java.awt.Dimension(400, 551));
+
+		KantoActiveZoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		KantoActiveZoom.setMaximumSize(new java.awt.Dimension(400, 551));
+		KantoActiveZoom.setMinimumSize(new java.awt.Dimension(400, 551));
+		KantoActiveZoom.setPreferredSize(new java.awt.Dimension(400, 551));
+
+		JohtoActiveComboBox.setEditable(true);
 		// JohtoActive.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		JohtoActive.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		JohtoActive.addItemListener(new java.awt.event.ItemListener()
+		JohtoActiveComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		JohtoActiveComboBox.addItemListener(new java.awt.event.ItemListener()
 		{
 			public void itemStateChanged(java.awt.event.ItemEvent evt)
 			{
 				JohtoActiveItemStateChanged(evt);
 			}
 		});
-		AutoCompleteDecorator.decorate(JohtoActive);
-		Background.add(JohtoActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 210, 20));
+		AutoCompleteDecorator.decorate(JohtoActiveComboBox);
+		Background.add(JohtoActiveComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 210, 20));
 
 		JohtoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
 		JohtoPrize1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -402,12 +446,12 @@ public class PokeboardUI extends JFrame
 		Background.add(JohtoActiveEnergy4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 30, 20));
 		Background.setLayer(JohtoActiveEnergy4, 4);
 
-		JohtoBench5.setEditable(true);
+		JohtoBench5ComboBox.setEditable(true);
 		// JohtoBench5.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		JohtoBench5.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(JohtoBench5);
-		Background.add(JohtoBench5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 100, 20));
+		JohtoBench5ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(JohtoBench5ComboBox);
+		Background.add(JohtoBench5ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 100, 20));
 
 		JohtoBench5Energy1.setBackground(java.awt.Color.lightGray);
 		JohtoBench5Energy1.addMouseListener(new java.awt.event.MouseAdapter()
@@ -453,12 +497,12 @@ public class PokeboardUI extends JFrame
 		Background.add(JohtoBench5Energy4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, 30, 20));
 		Background.setLayer(JohtoBench5Energy4, 4);
 
-		JohtoBench4.setEditable(true);
+		JohtoBench4ComboBox.setEditable(true);
 		// JohtoBench4.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		JohtoBench4.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(JohtoBench4);
-		Background.add(JohtoBench4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 100, 20));
+		JohtoBench4ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(JohtoBench4ComboBox);
+		Background.add(JohtoBench4ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 100, 20));
 
 		JohtoBench4Energy1.setBackground(java.awt.Color.lightGray);
 		JohtoBench4Energy1.addMouseListener(new java.awt.event.MouseAdapter()
@@ -504,12 +548,12 @@ public class PokeboardUI extends JFrame
 		Background.add(JohtoBench4Energy4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 30, 20));
 		Background.setLayer(JohtoBench4Energy4, 4);
 
-		JohtoBench3.setEditable(true);
+		JohtoBench3ComboBox.setEditable(true);
 		// JohtoBench3.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		JohtoBench3.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(JohtoBench3);
-		Background.add(JohtoBench3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 100, 20));
+		JohtoBench3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(JohtoBench3ComboBox);
+		Background.add(JohtoBench3ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 100, 20));
 
 		JohtoBench3Energy1.setBackground(java.awt.Color.lightGray);
 		JohtoBench3Energy1.addMouseListener(new java.awt.event.MouseAdapter()
@@ -555,12 +599,12 @@ public class PokeboardUI extends JFrame
 		Background.add(JohtoBench3Energy4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 30, 20));
 		Background.setLayer(JohtoBench3Energy4, 4);
 
-		JohtoBench2.setEditable(true);
+		JohtoBench2ComboBox.setEditable(true);
 		// JohtoBench2.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		JohtoBench2.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(JohtoBench2);
-		Background.add(JohtoBench2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, 20));
+		JohtoBench2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(JohtoBench2ComboBox);
+		Background.add(JohtoBench2ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, 20));
 
 		JohtoBench2Energy1.setBackground(java.awt.Color.lightGray);
 		JohtoBench2Energy1.addMouseListener(new java.awt.event.MouseAdapter()
@@ -613,12 +657,12 @@ public class PokeboardUI extends JFrame
 		Background.add(JohtoBench2Energy4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 30, 20));
 		Background.setLayer(JohtoBench2Energy4, 4);
 
-		JohtoBench1.setEditable(true);
+		JohtoBench1ComboBox.setEditable(true);
 		// JohtoBench1.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		JohtoBench1.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(JohtoBench1);
-		Background.add(JohtoBench1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 100, 20));
+		JohtoBench1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(JohtoBench1ComboBox);
+		Background.add(JohtoBench1ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 100, 20));
 
 		JohtoBench1Energy4.setBackground(java.awt.Color.lightGray);
 		JohtoBench1Energy4.addMouseListener(new java.awt.event.MouseAdapter()
@@ -664,54 +708,54 @@ public class PokeboardUI extends JFrame
 		Background.add(JohtoBench1Energy1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
 		Background.setLayer(JohtoBench1Energy1, 1);
 
-		KantoActive.setEditable(true);
+		KantoActiveComboBox.setEditable(true);
 		// KantoActive.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		KantoActive.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		KantoActive.addItemListener(new java.awt.event.ItemListener()
+		KantoActiveComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		KantoActiveComboBox.addItemListener(new java.awt.event.ItemListener()
 		{
 			public void itemStateChanged(java.awt.event.ItemEvent evt)
 			{
 				KantoActiveItemStateChanged(evt);
 			}
 		});
-		AutoCompleteDecorator.decorate(KantoActive);
-		Background.add(KantoActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 210, 20));
+		AutoCompleteDecorator.decorate(KantoActiveComboBox);
+		Background.add(KantoActiveComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 210, 20));
 
-		KantoBench1.setEditable(true);
+		KantoBench1ComboBox.setEditable(true);
 		// KantoBench1.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		KantoBench1.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(KantoBench1);
-		Background.add(KantoBench1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, 20));
+		KantoBench1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(KantoBench1ComboBox);
+		Background.add(KantoBench1ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, 20));
 
-		KantoBench2.setEditable(true);
+		KantoBench2ComboBox.setEditable(true);
 		// KantoBench1.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		KantoBench2.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(KantoBench2);
-		Background.add(KantoBench2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, 100, 20));
+		KantoBench2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(KantoBench2ComboBox);
+		Background.add(KantoBench2ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, 100, 20));
 
-		KantoBench3.setEditable(true);
+		KantoBench3ComboBox.setEditable(true);
 		// KantoBench3.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		KantoBench3.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(KantoBench3);
-		Background.add(KantoBench3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, 100, 20));
+		KantoBench3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(KantoBench3ComboBox);
+		Background.add(KantoBench3ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, 100, 20));
 
-		KantoBench4.setEditable(true);
+		KantoBench4ComboBox.setEditable(true);
 		// KantoBench4.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		KantoBench4.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(KantoBench4);
-		Background.add(KantoBench4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 620, 100, 20));
+		KantoBench4ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(KantoBench4ComboBox);
+		Background.add(KantoBench4ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 620, 100, 20));
 
-		KantoBench5.setEditable(true);
+		KantoBench5ComboBox.setEditable(true);
 		// KantoBench5.setModel(new
 		// javax.swing.DefaultComboBoxModel(PokemonList));
-		KantoBench5.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
-		AutoCompleteDecorator.decorate(KantoBench5);
-		Background.add(KantoBench5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 620, 100, 20));
+		KantoBench5ComboBox.setModel(new javax.swing.DefaultComboBoxModel<CardUI>(pokemonCards));
+		AutoCompleteDecorator.decorate(KantoBench5ComboBox);
+		Background.add(KantoBench5ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 620, 100, 20));
 
 		ClearButton.setBackground(new java.awt.Color(0, 0, 0));
 		ClearButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -836,6 +880,13 @@ public class PokeboardUI extends JFrame
 		Background.add(JohtoCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 134, 190));
 
 		KantoCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		KantoCard.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mouseClicked(java.awt.event.MouseEvent evt)
+			{
+				KantoCardMouseClicked(evt);
+			}
+		});
 		Background.add(KantoCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 134, 190));
 
 		mid.setBackground(new java.awt.Color(0, 0, 0));
@@ -1810,11 +1861,12 @@ public class PokeboardUI extends JFrame
 	private void KantoActiveItemStateChanged(java.awt.event.ItemEvent evt)
 	{
 		// GEN-FIRST:event_KantoActiveItemStateChanged
-		Object item = KantoActive.getSelectedItem();
+		Object item = KantoActiveComboBox.getSelectedItem();
 		if (item instanceof CardUI)
 		{
 			CardUI selectedCard = (CardUI) item;
 			KantoCard.setIcon(selectedCard.getIcon());
+			KantoActiveZoom.setIcon(selectedCard.getZoomIcon());
 		}
 	}// GEN-LAST:event_KantoActiveItemStateChanged
 
@@ -1832,7 +1884,7 @@ public class PokeboardUI extends JFrame
 	private void JohtoBench1SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_JohtoBench1SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB1, JohtoDamageNum);
-		PokeSwitch(JohtoBench1, JohtoActive);
+		PokeSwitch(JohtoBench1ComboBox, JohtoActiveComboBox);
 		EnergySwitch(JohtoBench1Energy1, JohtoBench1Energy2, JohtoBench1Energy3, JohtoBench1Energy4, JohtoActiveEnergy1,
 				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK);
 		// TODO add your handling code here:
@@ -1841,7 +1893,7 @@ public class PokeboardUI extends JFrame
 	private void JohtoBench2SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_JohtoBench2SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB2, JohtoDamageNum);
-		PokeSwitch(JohtoBench2, JohtoActive);
+		PokeSwitch(JohtoBench2ComboBox, JohtoActiveComboBox);
 		EnergySwitch(JohtoBench2Energy1, JohtoBench2Energy2, JohtoBench2Energy3, JohtoBench2Energy4, JohtoActiveEnergy1,
 				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK);
 	}// GEN-LAST:event_JohtoBench2SwitchMouseClicked
@@ -1849,7 +1901,7 @@ public class PokeboardUI extends JFrame
 	private void JohtoBench3SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_JohtoBench3SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB3, JohtoDamageNum);
-		PokeSwitch(JohtoBench3, JohtoActive);
+		PokeSwitch(JohtoBench3ComboBox, JohtoActiveComboBox);
 		EnergySwitch(JohtoBench3Energy1, JohtoBench3Energy2, JohtoBench3Energy3, JohtoBench3Energy4, JohtoActiveEnergy1,
 				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK);
 	}// GEN-LAST:event_JohtoBench3SwitchMouseClicked
@@ -1857,7 +1909,7 @@ public class PokeboardUI extends JFrame
 	private void JohtoBench4SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_JohtoBench4SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB4, JohtoDamageNum);
-		PokeSwitch(JohtoBench4, JohtoActive);
+		PokeSwitch(JohtoBench4ComboBox, JohtoActiveComboBox);
 		EnergySwitch(JohtoBench4Energy1, JohtoBench4Energy2, JohtoBench4Energy3, JohtoBench4Energy4, JohtoActiveEnergy1,
 				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK);
 	}// GEN-LAST:event_JohtoBench4SwitchMouseClicked
@@ -1865,7 +1917,7 @@ public class PokeboardUI extends JFrame
 	private void JohtoBench5SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_JohtoBench5SwitchMouseClicked
 		DamageSwitch(JohtoDamageNumB5, JohtoDamageNum);
-		PokeSwitch(JohtoBench5, JohtoActive);
+		PokeSwitch(JohtoBench5ComboBox, JohtoActiveComboBox);
 		EnergySwitch(JohtoBench5Energy1, JohtoBench5Energy2, JohtoBench5Energy3, JohtoBench5Energy4, JohtoActiveEnergy1,
 				JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4, Color.BLACK);
 	}// GEN-LAST:event_JohtoBench5SwitchMouseClicked
@@ -1873,7 +1925,7 @@ public class PokeboardUI extends JFrame
 	private void KantoBench1SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_KantoBench1SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB1, KantoDamageNum);
-		PokeSwitch(KantoBench1, KantoActive);
+		PokeSwitch(KantoBench1ComboBox, KantoActiveComboBox);
 		EnergySwitch(KantoBench1Energy1, KantoBench1Energy2, KantoBench1Energy3, KantoBench1Energy4, KantoActiveEnergy1,
 				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED);
 	}// GEN-LAST:event_KantoBench1SwitchMouseClicked
@@ -1881,7 +1933,7 @@ public class PokeboardUI extends JFrame
 	private void KantoBench2SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_KantoBench2SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB2, KantoDamageNum);
-		PokeSwitch(KantoBench2, KantoActive);
+		PokeSwitch(KantoBench2ComboBox, KantoActiveComboBox);
 		EnergySwitch(KantoBench2Energy1, KantoBench2Energy2, KantoBench2Energy3, KantoBench2Energy4, KantoActiveEnergy1,
 				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED);
 	}// GEN-LAST:event_KantoBench2SwitchMouseClicked
@@ -1889,7 +1941,7 @@ public class PokeboardUI extends JFrame
 	private void KantoBench3SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_KantoBench3SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB3, KantoDamageNum);
-		PokeSwitch(KantoBench3, KantoActive);
+		PokeSwitch(KantoBench3ComboBox, KantoActiveComboBox);
 		EnergySwitch(KantoBench3Energy1, KantoBench3Energy2, KantoBench3Energy3, KantoBench3Energy4, KantoActiveEnergy1,
 				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED);
 	}// GEN-LAST:event_KantoBench3SwitchMouseClicked
@@ -1897,7 +1949,7 @@ public class PokeboardUI extends JFrame
 	private void KantoBench4SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_KantoBench4SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB4, KantoDamageNum);
-		PokeSwitch(KantoBench4, KantoActive);
+		PokeSwitch(KantoBench4ComboBox, KantoActiveComboBox);
 		EnergySwitch(KantoBench4Energy1, KantoBench4Energy2, KantoBench4Energy3, KantoBench4Energy4, KantoActiveEnergy1,
 				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED);
 	}// GEN-LAST:event_KantoBench4SwitchMouseClicked
@@ -1905,7 +1957,7 @@ public class PokeboardUI extends JFrame
 	private void KantoBench5SwitchMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_KantoBench5SwitchMouseClicked
 		DamageSwitch(KantoDamageNumB5, KantoDamageNum);
-		PokeSwitch(KantoBench5, KantoActive);
+		PokeSwitch(KantoBench5ComboBox, KantoActiveComboBox);
 		EnergySwitch(KantoBench5Energy1, KantoBench5Energy2, KantoBench5Energy3, KantoBench5Energy4, KantoActiveEnergy1,
 				KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4, Color.RED);
 	}// GEN-LAST:event_KantoBench5SwitchMouseClicked
@@ -1913,11 +1965,12 @@ public class PokeboardUI extends JFrame
 	private void JohtoActiveItemStateChanged(java.awt.event.ItemEvent evt)
 	{
 		// GEN-FIRST:event_JohtoActiveItemStateChanged
-		Object item = JohtoActive.getSelectedItem();
+		Object item = JohtoActiveComboBox.getSelectedItem();
 		if (item instanceof CardUI)
 		{
 			CardUI selectedCard = (CardUI) item;
 			JohtoCard.setIcon(selectedCard.getIcon());
+			JohtoActiveZoom.setIcon(selectedCard.getZoomIcon());
 		}
 	}// GEN-LAST:event_JohtoActiveItemStateChanged
 
@@ -1983,7 +2036,7 @@ public class PokeboardUI extends JFrame
 
 	private void KantoClearMouseClicked(java.awt.event.MouseEvent evt)
 	{// GEN-FIRST:event_KantoClearMouseClicked
-		KantoActive.setSelectedIndex(0);
+		KantoActiveComboBox.setSelectedIndex(0);
 		ResetEnergies(KantoActiveEnergy1, KantoActiveEnergy2, KantoActiveEnergy3, KantoActiveEnergy4);
 		ResetStatuses(KantoBR, KantoPO, KantoPZ, KantoSL, KantoCN);
 		KantoDamageNum.setText("0");// TODO add your handling code here:
@@ -1993,7 +2046,7 @@ public class PokeboardUI extends JFrame
 	{// GEN-FIRST:event_JohtoClearMouseClicked
 		ResetEnergies(JohtoActiveEnergy1, JohtoActiveEnergy2, JohtoActiveEnergy3, JohtoActiveEnergy4);
 		ResetStatuses(JohtoBR, JohtoPO, JohtoPZ, JohtoSL, JohtoCN);
-		JohtoActive.setSelectedIndex(0);
+		JohtoActiveComboBox.setSelectedIndex(0);
 		JohtoDamageNum.setText("0");
 		// TODO add your handling code here:
 	}// GEN-LAST:event_JohtoClearMouseClicked
@@ -2004,11 +2057,17 @@ public class PokeboardUI extends JFrame
 		// TODO add your handling code here:
 	}// GEN-LAST:event_JohtoCardMouseClicked
 
+	private void KantoCardMouseClicked(java.awt.event.MouseEvent evt)
+	{// GEN-FIRST:event_KantoCardMouseClicked
+		KantoActiveCard.setVisible(true); // TODO add your handling code here:
+	}// GEN-LAST:event_KantoCardMouseClicked
+
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JLayeredPane Background;
 	private javax.swing.JButton ClearButton;
 	private javax.swing.JLabel Johto;
-	private javax.swing.JComboBox<CardUI> JohtoActive;
+	private javax.swing.JLabel JohtoActiveZoom;
+	private javax.swing.JComboBox<CardUI> JohtoActiveComboBox;
 	private javax.swing.JFrame JohtoActiveCard;
 	private javax.swing.JButton JohtoActiveEnergy1;
 	private javax.swing.JButton JohtoActiveEnergy2;
@@ -2016,31 +2075,31 @@ public class PokeboardUI extends JFrame
 	private javax.swing.JButton JohtoActiveEnergy4;
 	private javax.swing.JLabel JohtoActivePic;
 	private javax.swing.JButton JohtoBR;
-	private javax.swing.JComboBox<CardUI> JohtoBench1;
+	private javax.swing.JComboBox<CardUI> JohtoBench1ComboBox;
 	private javax.swing.JButton JohtoBench1Energy1;
 	private javax.swing.JButton JohtoBench1Energy2;
 	private javax.swing.JButton JohtoBench1Energy3;
 	private javax.swing.JButton JohtoBench1Energy4;
 	private javax.swing.JButton JohtoBench1Switch;
-	private javax.swing.JComboBox<CardUI> JohtoBench2;
+	private javax.swing.JComboBox<CardUI> JohtoBench2ComboBox;
 	private javax.swing.JButton JohtoBench2Energy1;
 	private javax.swing.JButton JohtoBench2Energy2;
 	private javax.swing.JButton JohtoBench2Energy3;
 	private javax.swing.JButton JohtoBench2Energy4;
 	private javax.swing.JButton JohtoBench2Switch;
-	private javax.swing.JComboBox<CardUI> JohtoBench3;
+	private javax.swing.JComboBox<CardUI> JohtoBench3ComboBox;
 	private javax.swing.JButton JohtoBench3Energy1;
 	private javax.swing.JButton JohtoBench3Energy2;
 	private javax.swing.JButton JohtoBench3Energy3;
 	private javax.swing.JButton JohtoBench3Energy4;
 	private javax.swing.JButton JohtoBench3Switch;
-	private javax.swing.JComboBox<CardUI> JohtoBench4;
+	private javax.swing.JComboBox<CardUI> JohtoBench4ComboBox;
 	private javax.swing.JButton JohtoBench4Energy1;
 	private javax.swing.JButton JohtoBench4Energy2;
 	private javax.swing.JButton JohtoBench4Energy3;
 	private javax.swing.JButton JohtoBench4Energy4;
 	private javax.swing.JButton JohtoBench4Switch;
-	private javax.swing.JComboBox<CardUI> JohtoBench5;
+	private javax.swing.JComboBox<CardUI> JohtoBench5ComboBox;
 	private javax.swing.JButton JohtoBench5Energy1;
 	private javax.swing.JButton JohtoBench5Energy2;
 	private javax.swing.JButton JohtoBench5Energy3;
@@ -2067,37 +2126,39 @@ public class PokeboardUI extends JFrame
 	private javax.swing.JLabel JohtoPrize6;
 	private javax.swing.JButton JohtoSL;
 	private javax.swing.JLabel Kanto;
-	private javax.swing.JComboBox<CardUI> KantoActive;
+	private javax.swing.JLabel KantoActiveZoom;
+	private javax.swing.JComboBox<CardUI> KantoActiveComboBox;
+	private javax.swing.JFrame KantoActiveCard;
 	private javax.swing.JButton KantoActiveEnergy1;
 	private javax.swing.JButton KantoActiveEnergy2;
 	private javax.swing.JButton KantoActiveEnergy3;
 	private javax.swing.JButton KantoActiveEnergy4;
 	private javax.swing.JButton KantoBR;
-	private javax.swing.JComboBox<CardUI> KantoBench1;
+	private javax.swing.JComboBox<CardUI> KantoBench1ComboBox;
 	private javax.swing.JButton KantoBench1Energy1;
 	private javax.swing.JButton KantoBench1Energy2;
 	private javax.swing.JButton KantoBench1Energy3;
 	private javax.swing.JButton KantoBench1Energy4;
 	private javax.swing.JButton KantoBench1Switch;
-	private javax.swing.JComboBox<CardUI> KantoBench2;
+	private javax.swing.JComboBox<CardUI> KantoBench2ComboBox;
 	private javax.swing.JButton KantoBench2Energy1;
 	private javax.swing.JButton KantoBench2Energy2;
 	private javax.swing.JButton KantoBench2Energy3;
 	private javax.swing.JButton KantoBench2Energy4;
 	private javax.swing.JButton KantoBench2Switch;
-	private javax.swing.JComboBox<CardUI> KantoBench3;
+	private javax.swing.JComboBox<CardUI> KantoBench3ComboBox;
 	private javax.swing.JButton KantoBench3Energy1;
 	private javax.swing.JButton KantoBench3Energy2;
 	private javax.swing.JButton KantoBench3Energy3;
 	private javax.swing.JButton KantoBench3Energy4;
 	private javax.swing.JButton KantoBench3Switch;
-	private javax.swing.JComboBox<CardUI> KantoBench4;
+	private javax.swing.JComboBox<CardUI> KantoBench4ComboBox;
 	private javax.swing.JButton KantoBench4Energy1;
 	private javax.swing.JButton KantoBench4Energy2;
 	private javax.swing.JButton KantoBench4Energy3;
 	private javax.swing.JButton KantoBench4Energy4;
 	private javax.swing.JButton KantoBench4Switch;
-	private javax.swing.JComboBox<CardUI> KantoBench5;
+	private javax.swing.JComboBox<CardUI> KantoBench5ComboBox;
 	private javax.swing.JButton KantoBench5Energy1;
 	private javax.swing.JButton KantoBench5Energy2;
 	private javax.swing.JButton KantoBench5Energy3;
@@ -2384,18 +2445,18 @@ public class PokeboardUI extends JFrame
 															// energy reset
 
 		Stadium.setSelectedIndex(0);// Stadium Reset
-		KantoActive.setSelectedIndex(0);// Kanto Active Reset
-		JohtoActive.setSelectedIndex(0);// Johto Active Reset
-		KantoBench1.setSelectedIndex(0);// Kanto Bench 1 Reset
-		KantoBench2.setSelectedIndex(0);// Kanto Bench 2 Reset
-		KantoBench3.setSelectedIndex(0);// Kanto Bench 3 Reset
-		KantoBench4.setSelectedIndex(0);// Kanto Bench 4 Reset
-		KantoBench5.setSelectedIndex(0);// Kanto Bench 5 Reset
-		JohtoBench1.setSelectedIndex(0);// Johto Bench 1 Reset
-		JohtoBench2.setSelectedIndex(0);// Johto Bench 2 Reset
-		JohtoBench3.setSelectedIndex(0);// Johto Bench 3 Reset
-		JohtoBench4.setSelectedIndex(0);// Johto Bench 4 Reset
-		JohtoBench5.setSelectedIndex(0);// Johto Bench 5 Reset
+		KantoActiveComboBox.setSelectedIndex(0);// Kanto Active Reset
+		JohtoActiveComboBox.setSelectedIndex(0);// Johto Active Reset
+		KantoBench1ComboBox.setSelectedIndex(0);// Kanto Bench 1 Reset
+		KantoBench2ComboBox.setSelectedIndex(0);// Kanto Bench 2 Reset
+		KantoBench3ComboBox.setSelectedIndex(0);// Kanto Bench 3 Reset
+		KantoBench4ComboBox.setSelectedIndex(0);// Kanto Bench 4 Reset
+		KantoBench5ComboBox.setSelectedIndex(0);// Kanto Bench 5 Reset
+		JohtoBench1ComboBox.setSelectedIndex(0);// Johto Bench 1 Reset
+		JohtoBench2ComboBox.setSelectedIndex(0);// Johto Bench 2 Reset
+		JohtoBench3ComboBox.setSelectedIndex(0);// Johto Bench 3 Reset
+		JohtoBench4ComboBox.setSelectedIndex(0);// Johto Bench 4 Reset
+		JohtoBench5ComboBox.setSelectedIndex(0);// Johto Bench 5 Reset
 
 		// Reset Statuses
 		ResetStatuses(JohtoBR, JohtoPO, JohtoPZ, JohtoSL, JohtoCN);
