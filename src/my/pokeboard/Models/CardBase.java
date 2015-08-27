@@ -8,6 +8,7 @@ package my.pokeboard.Models;
 /**
  *
  * @author Michael
+ * A basis for all cards inside the game.
  */
 public abstract class CardBase
 {
