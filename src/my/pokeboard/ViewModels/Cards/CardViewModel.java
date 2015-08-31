@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package my.pokeboard.Views.CardUIs;
+package my.pokeboard.ViewModels.Cards;
+
 import my.pokeboard.Models.*;
 /**
  * A class for define the essential behavior of a card in the UI
  * @author Michael
  */
-public class CardUI
+public class CardViewModel
 {
 	private static final String IMAGE_EXTENSION = ".png";
 	private static final String ZOOM_SUFFIX = "ZOOM";
@@ -17,7 +18,7 @@ public class CardUI
     private String title;
     private CardBase cardModel;
     
-    public CardUI(CardBase cardModel, String iconPath, String title)
+    public CardViewModel(CardBase cardModel, String iconPath, String title)
     {
         this.cardModel = cardModel;
         this.iconPath = iconPath;
