@@ -12,7 +12,14 @@ package my.pokeboard.Models;
  */
 public abstract class CardBase
 {
-    protected CardBase()
+    protected CardBase(String title)
     {
+    	this.title = title;
+    }
+    
+    private final String title;
+    public String getTitle()
+    {
+    	return title;
     }
 }

@@ -14,26 +14,24 @@ public class CardViewModel
 {
 	private static final String IMAGE_EXTENSION = ".png";
 	private static final String ZOOM_SUFFIX = "ZOOM";
-    private String iconPath;
-    private String title;
-    private CardBase cardModel;
+    private final String iconPath;
+    private final CardBase cardModel;
     
-    public CardViewModel(CardBase cardModel, String iconPath, String title)
+    public CardViewModel(CardBase cardModel, String iconPath)
     {
         this.cardModel = cardModel;
         this.iconPath = iconPath;
-        this.title = title;
     }
     
     @Override
     public String toString()
     {
-        return title;
+        return cardModel.getTitle();
     }
     
     public String getTitle()
     {
-        return title;
+        return cardModel.getTitle();
     }
         
     private javax.swing.ImageIcon _Icon;

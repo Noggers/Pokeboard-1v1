@@ -17,8 +17,8 @@ public class PokeboardUI extends JFrame
 {
 	private static final long serialVersionUID = 1L;
 
-	private CardViewModel[] pokemonCards = CardViewModelFactory.generateAllPokemonCards();
-	private CardViewModel[] stadiumCards = CardViewModelFactory.generateAllStadiumCards();
+	private CardViewModel[] pokemonCards = CardViewModelFactory.generateAllPokemonCardViewModels();
+	private CardViewModel[] stadiumCards = CardViewModelFactory.generateAllStadiumCardViewModels();
 
 	private Color lightPurple = new Color(204, 102, 255);
 	private Color darkPurple = new Color(102, 0, 102);
