@@ -9,10 +9,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import javax.swing.JDialog;
+//import javax.swing.JDialog;
 
 import my.pokeboard.Views.PokeboardUI;
-import my.pokeboard.Views.ResourceDownloader;
+//import my.pokeboard.Views.ResourceDownloader;
 
 /**
  * @author Michael

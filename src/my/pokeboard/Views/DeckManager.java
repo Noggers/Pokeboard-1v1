@@ -1,13 +1,10 @@
 package my.pokeboard.Views;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JSplitPane;
-import javax.swing.JInternalFrame;
 
 public class DeckManager extends JFrame
 {
