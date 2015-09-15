@@ -14,6 +14,7 @@ public class CardViewModel
 {
 	private static final String IMAGE_EXTENSION = ".png";
 	private static final String ZOOM_SUFFIX = "ZOOM";
+	private static final String DEFAULT_ZOOM = "/images/Back" + IMAGE_EXTENSION;
     private final String iconPath;
     private final CardBase cardModel;
     
@@ -54,6 +55,11 @@ public class CardViewModel
     		if(resource == null)
     		{
     			url = iconPath + "Zoom" + IMAGE_EXTENSION;
+    			resource = getClass().getResource(url);
+    		}
+    		if(resource == null) //If we're still not getting anything, we just default our image
+    		{
+    			url = DEFAULT_ZOOM;
     			resource = getClass().getResource(url);
     		}
     		_ZoomIcon = new javax.swing.ImageIcon(resource);

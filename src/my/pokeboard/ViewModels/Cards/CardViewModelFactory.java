@@ -464,8 +464,8 @@ public class CardViewModelFactory
         cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/Donphan_NG"); ++index;
         cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/Electabuzz_NG"); ++index;
         cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/Elekid_NG"); ++index;
-        cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/FeraligatrBERSERK_NG"); ++index;
-        cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/FeraligatrRIPTIDE_NG"); ++index;
+        cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/FeraligatrBERSERK_ng"); ++index;
+        cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/FeraligatrRIPTIDE_ng"); ++index;
         cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/Flaaffy_NG"); ++index;
         cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/Furret_NG"); ++index;
         cardViewModels[index] = new CardViewModel(cards[index], "/images/neo_genesis/Girafarig_NG"); ++index;
