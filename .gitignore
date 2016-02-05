@@ -26,3 +26,7 @@ manifest.mf
 #Eclipse Stuff:
 .classpath
 .project
+/bin/
+
+#Folder for storing third party Jar Files:
+/lib/
