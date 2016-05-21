@@ -28,5 +28,9 @@ manifest.mf
 .project
 /bin/
 
+#Intellij Stuff:
+/.idea/
+*.iml
+
 #Folder for storing third party Jar Files:
 /lib/

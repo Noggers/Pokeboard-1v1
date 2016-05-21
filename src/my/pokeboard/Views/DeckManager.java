@@ -29,5 +29,4 @@ public class DeckManager extends JFrame
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 	}
-
 }
