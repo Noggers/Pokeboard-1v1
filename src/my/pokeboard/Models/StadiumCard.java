@@ -1,6 +1,6 @@
 package my.pokeboard.Models;
 
-public class StadiumCard extends CardBase
+public class StadiumCard extends Card
 {
 	public StadiumCard(String title)
 	{

@@ -10,9 +10,9 @@ package my.pokeboard.Models;
  * @author Michael
  * A basis for all cards inside the game.
  */
-public abstract class CardBase
+public abstract class Card
 {
-    protected CardBase(String title)
+    protected Card(String title)
     {
     	this.title = title;
     }

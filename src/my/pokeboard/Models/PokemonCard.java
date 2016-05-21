@@ -10,7 +10,7 @@ package my.pokeboard.Models;
  * @author Michael
  * A class for defining the essential components for a creature card.
  */
-public class PokemonCard extends CardBase
+public class PokemonCard extends Card
 {
     public PokemonCard(String setName, String title)
     {

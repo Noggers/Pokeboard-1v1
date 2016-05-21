@@ -1,10 +1,10 @@
 package my.pokeboard.Models;
 
-public class CardFactory
+public final class CardFactory
 {
-	public static CardBase[] generateAllStadiumCards()
+	public static Card[] generateAllStadiumCards()
     {
-        CardBase[] cards = new CardBase[24]; //There are currently 25 cards in our collection related to Stadiums
+        Card[] cards = new Card[24]; //There are currently 25 cards in our collection related to Stadiums
         int index = 0;
         
         cards[index] = new StadiumCard("Stadium"); ++index;
@@ -36,9 +36,9 @@ public class CardFactory
         return cards;
     }
 	
-	public static CardBase[] generateAllPokemonCardBases()
+	public static Card[] generateAllPokemonCardBases()
     {
-        CardBase[] cards = new CardBase[756]; //There are currently 756 cards in our collection related to Pokemon
+        Card[] cards = new Card[756]; //There are currently 756 cards in our collection related to Pokemon
         int index = 0;
 
         cards[index] = new PokemonCard("Back", "Active"); ++index;
@@ -822,4 +822,6 @@ public class CardFactory
         
         return cards;
     }
+
+    private CardFactory(){ }
 }
