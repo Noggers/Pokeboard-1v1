@@ -1,6 +1,9 @@
 # Java byte-code binaries
 *.class
 
+# Python compiled modules
+*.pyc
+
 # Package Files #
 *.jar
 *.war
