@@ -26,22 +26,18 @@ public class Main
 	public static void main(String args[])
 	{
 		setApplicationStyle();
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					//TODO Add behavior for launching the resource downloader
+		EventQueue.invokeLater(() -> {
+            try
+            {
+                //TODO Add behavior for launching the resource downloader
 //					JDialog dialog = new ResourceDownloader();
-					JFrame frame = new PokeboardUI();
-					frame.setVisible(true);
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
+                JFrame frame = new PokeboardUI();
+                frame.setVisible(true);
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        });
 	}
 
 	private static void setApplicationStyle()
