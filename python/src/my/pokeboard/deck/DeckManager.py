@@ -21,31 +21,33 @@ class DeckManager(object):
         self.deck = deck_build
         self.__shuffle_and_deal_prizes__()
 
-    def draw_cards(self, count=1, region=Regions.DECK):
+    def draw_cards(self, region=Regions.DECK, count=1):
         for case in Switch(region):
             if case(Regions.DECK):
                 draw_region = self.deck
                 break
             if case(Regions.PRIZES):
                 draw_region = self.prizes
+                break
             if case():
                 raise AttributeError("Invalid region")
         self.hand.extend(draw_region[:count])
         for i in range(count):
             draw_region.pop(0)
 
-    def play_card(self, card):
+    def play_card(self, card_ids):
         """
         moves a card from the hand onto the board
         """
-        self.board.append(card)
-        self.hand.remove(card)
+        cards = [card for card in self.hand if card.id in card_ids]
+        self.board.extend(cards)
+        for card in cards:
+            self.hand.remove(card)
 
-    def discard_cards(self, cards, region=Regions.HAND):
+    def discard_cards(self, region=Regions.HAND, card_ids=[]):
         """
         moves cards from the hand into the discard
         """
-        self.discard.extend(cards)
         for case in Switch(region):
             if case(Regions.BOARD):
                 discard_region = self.board
@@ -55,14 +57,15 @@ class DeckManager(object):
                 break
             if case():
                 raise AttributeError("Invalid region")
+        cards = [card for card in discard_region if card.id in card_ids]
+        self.discard.extend(cards)
         for card in cards:
             discard_region.remove(card)
 
-    def return_cards(self, cards, region=Regions.HAND, shuffle_deck=True):
+    def return_cards(self, region=Regions.HAND, card_ids=[], shuffle_deck=True):
         """
         moves cards to the top of the deck, optionally shuffling afterwards
         """
-        self.deck = cards + self.deck
         for case in Switch(region):
             if case(Regions.HAND):
                 return_region = self.hand
@@ -72,12 +75,14 @@ class DeckManager(object):
                 break
             if case():
                 raise AttributeError("Invalid region")
+        cards = [card for card in return_region if card.id in card_ids]
+        self.deck = cards + self.deck
         for card in cards:
             return_region.remove(card)
         if shuffle_deck:
             self.shuffle_deck()
 
-    def show_cards(self, count=_deck_size, region=Regions.HAND):
+    def show_cards(self, region=Regions.HAND, count=_deck_size):
         for case in Switch(region):
             if case(Regions.HAND):
                 shown_cards = self.hand
@@ -87,6 +92,7 @@ class DeckManager(object):
                 break
             if case(Regions.BOARD):
                 shown_cards = self.board
+                break
             if case(Regions.DISCARD):
                 shown_cards = self.discard[:count]
                 break
@@ -107,7 +113,7 @@ class DeckManager(object):
         """
         resets the state of the manager by moving everything to the deck and shuffling
         """
-        self.deck.extend(self.hand).extend(self.board).extend(self.discard).extend(self.prizes)
+        self.deck.extend(self.hand + self.board + self.discard + self.prizes)
         self.hand = []
         self.board = []
         self.discard = []

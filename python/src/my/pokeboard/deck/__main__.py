@@ -22,7 +22,9 @@ def read_card_file(file_path):
     return cards
 
 print "Loading Deck Manager..."
-deck_path = raw_input("Please enter path to deck file: ")
+deck_path = raw_input("Please enter path to deck file (empty: default): ")
+if deck_path == "":
+    deck_path = "/Users/michaelj/Documents/Pokeboard/default.dk"
 print "Loading deck file from " + deck_path
 deck_build = read_card_file(deck_path)
 print "Deck loaded. Showing:"
