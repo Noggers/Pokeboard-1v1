@@ -169,7 +169,7 @@ public class PokeboardUI extends JFrame
 		KantoClear = new javax.swing.JButton();
 		JohtoClear = new javax.swing.JButton();
 
-		JohtoActivePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		JohtoActivePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/Back.png"))); // NOI18N
 
         JohtoActiveCard.setAlwaysOnTop(true);
         JohtoActiveCard.setMinimumSize(new java.awt.Dimension(425, 575));
@@ -237,12 +237,12 @@ public class PokeboardUI extends JFrame
 		Stadium.addItemListener(this::StadiumItemStateChanged);
 		Background.add(Stadium, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 150, 20));
 
-		JohtoActiveZoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		JohtoActiveZoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/Back.png"))); // NOI18N
 		JohtoActiveZoom.setMaximumSize(new java.awt.Dimension(400, 551));
 		JohtoActiveZoom.setMinimumSize(new java.awt.Dimension(400, 551));
 		JohtoActiveZoom.setPreferredSize(new java.awt.Dimension(400, 551));
 
-		KantoActiveZoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		KantoActiveZoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/Back.png"))); // NOI18N
 		KantoActiveZoom.setMaximumSize(new java.awt.Dimension(400, 551));
 		KantoActiveZoom.setMinimumSize(new java.awt.Dimension(400, 551));
 		KantoActiveZoom.setPreferredSize(new java.awt.Dimension(400, 551));
@@ -255,7 +255,7 @@ public class PokeboardUI extends JFrame
 		AutoCompleteDecorator.decorate(JohtoActiveComboBox);
 		Background.add(JohtoActiveComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 210, 20));
 
-		JohtoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		JohtoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		JohtoPrize1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		JohtoPrize1.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -266,7 +266,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(JohtoPrize1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 21, 30));
 
-		JohtoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		JohtoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		JohtoPrize2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		JohtoPrize2.setPreferredSize(new java.awt.Dimension(14, 20));
 		JohtoPrize2.addMouseListener(new java.awt.event.MouseAdapter()
@@ -278,7 +278,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(JohtoPrize2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 21, 30));
 
-		JohtoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		JohtoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		JohtoPrize3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		JohtoPrize3.setPreferredSize(new java.awt.Dimension(21, 30));
 		JohtoPrize3.addMouseListener(new java.awt.event.MouseAdapter()
@@ -290,7 +290,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(JohtoPrize3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 21, 30));
 
-		JohtoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		JohtoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		JohtoPrize4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		JohtoPrize4.setMaximumSize(new java.awt.Dimension(21, 30));
 		JohtoPrize4.setMinimumSize(new java.awt.Dimension(21, 30));
@@ -303,7 +303,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(JohtoPrize4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 21, 30));
 
-		JohtoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		JohtoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		JohtoPrize5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		JohtoPrize5.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -314,7 +314,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(JohtoPrize5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 20, 30));
 
-		JohtoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		JohtoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		JohtoPrize6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		JohtoPrize6.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -325,7 +325,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(JohtoPrize6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 20, 30));
 
-		KantoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		KantoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		KantoPrize1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		KantoPrize1.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -336,7 +336,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(KantoPrize1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 21, 30));
 
-		KantoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		KantoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		KantoPrize2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		KantoPrize2.setPreferredSize(new java.awt.Dimension(14, 20));
 		KantoPrize2.addMouseListener(new java.awt.event.MouseAdapter()
@@ -348,7 +348,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(KantoPrize2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 21, 30));
 
-		KantoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		KantoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		KantoPrize3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		KantoPrize3.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -359,7 +359,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(KantoPrize3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 21, 30));
 
-		KantoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		KantoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		KantoPrize4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		KantoPrize4.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -370,7 +370,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(KantoPrize4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 21, 30));
 
-		KantoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		KantoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		KantoPrize5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		KantoPrize5.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -381,7 +381,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(KantoPrize5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 20, 30));
 
-		KantoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png"))); // NOI18N
+		KantoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png"))); // NOI18N
 		KantoPrize6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		KantoPrize6.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -846,7 +846,7 @@ public class PokeboardUI extends JFrame
 		Background.add(KantoDamageNumB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, 40, -1));
 		Background.add(StadiumCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 186, 260));
 
-		JohtoCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		JohtoCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/Back.png"))); // NOI18N
 		JohtoCard.addMouseListener(new java.awt.event.MouseAdapter()
 		{
 			public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -856,7 +856,7 @@ public class PokeboardUI extends JFrame
 		});
 		Background.add(JohtoCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 134, 190));
 
-		KantoCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Back.png"))); // NOI18N
+		KantoCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/Back.png"))); // NOI18N
 		KantoCard.addMouseListener(new java.awt.event.MouseAdapter()
 		{
 			public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -867,7 +867,7 @@ public class PokeboardUI extends JFrame
 		Background.add(KantoCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 134, 190));
 
 		mid.setBackground(new java.awt.Color(0, 0, 0));
-		mid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/boackground2-1.png"))); // NOI18N
+		mid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/boackground2-1.png"))); // NOI18N
 		mid.setAlignmentY(0.0F);
 		mid.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		mid.setMaximumSize(new java.awt.Dimension(750, 469));
@@ -876,11 +876,11 @@ public class PokeboardUI extends JFrame
 		Background.add(mid, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 750, 430));
 		mid.getAccessibleContext().setAccessibleName("mid");
 
-		Kanto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Kanto copy.png"))); // NOI18N
+		Kanto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/Kanto copy.png"))); // NOI18N
 		Kanto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 		Background.add(Kanto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 750, 170));
 
-		Johto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Johto copy.png"))); // NOI18N
+		Johto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/Johto copy.png"))); // NOI18N
 		Johto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 		Background.add(Johto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 150));
 
@@ -1269,7 +1269,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(KantoPZ, 2);
 
 		KantoBench5Switch.setBackground(new java.awt.Color(255, 255, 255));
-		KantoBench5Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		KantoBench5Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		KantoBench5Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		KantoBench5Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1282,7 +1282,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(KantoBench5Switch, 2);
 
 		KantoBench4Switch.setBackground(new java.awt.Color(255, 255, 255));
-		KantoBench4Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		KantoBench4Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		KantoBench4Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		KantoBench4Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1295,7 +1295,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(KantoBench4Switch, 2);
 
 		KantoBench3Switch.setBackground(new java.awt.Color(255, 255, 255));
-		KantoBench3Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		KantoBench3Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		KantoBench3Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		KantoBench3Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1308,7 +1308,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(KantoBench3Switch, 2);
 
 		KantoBench2Switch.setBackground(new java.awt.Color(255, 255, 255));
-		KantoBench2Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		KantoBench2Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		KantoBench2Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		KantoBench2Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1321,7 +1321,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(KantoBench2Switch, 2);
 
 		KantoBench1Switch.setBackground(new java.awt.Color(255, 255, 255));
-		KantoBench1Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		KantoBench1Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		KantoBench1Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		KantoBench1Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1334,7 +1334,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(KantoBench1Switch, 2);
 
 		JohtoBench5Switch.setBackground(new java.awt.Color(255, 0, 0));
-		JohtoBench5Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		JohtoBench5Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		JohtoBench5Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		JohtoBench5Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1347,7 +1347,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(JohtoBench5Switch, 2);
 
 		JohtoBench4Switch.setBackground(new java.awt.Color(255, 0, 0));
-		JohtoBench4Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		JohtoBench4Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		JohtoBench4Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		JohtoBench4Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1360,7 +1360,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(JohtoBench4Switch, 2);
 
 		JohtoBench3Switch.setBackground(new java.awt.Color(255, 0, 0));
-		JohtoBench3Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		JohtoBench3Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		JohtoBench3Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		JohtoBench3Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1373,7 +1373,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(JohtoBench3Switch, 2);
 
 		JohtoBench2Switch.setBackground(new java.awt.Color(255, 0, 0));
-		JohtoBench2Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		JohtoBench2Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		JohtoBench2Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		JohtoBench2Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -1386,7 +1386,7 @@ public class PokeboardUI extends JFrame
 		Background.setLayer(JohtoBench2Switch, 2);
 
 		JohtoBench1Switch.setBackground(new java.awt.Color(255, 0, 0));
-		JohtoBench1Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/switch.png"))); // NOI18N
+		JohtoBench1Switch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/switch.png"))); // NOI18N
 		JohtoBench1Switch.setPreferredSize(new java.awt.Dimension(33, 10));
 		JohtoBench1Switch.addMouseListener(new java.awt.event.MouseAdapter()
 		{
@@ -2435,18 +2435,18 @@ public class PokeboardUI extends JFrame
 		ResetStatuses(KantoBR, KantoPO, KantoPZ, KantoSL, KantoCN);
 
 		// Reset Prizes
-		JohtoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		JohtoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		JohtoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		JohtoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		JohtoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		JohtoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		KantoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		KantoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		KantoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		KantoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		KantoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
-		KantoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+		JohtoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		JohtoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		JohtoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		JohtoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		JohtoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		JohtoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		KantoPrize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		KantoPrize2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		KantoPrize3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		KantoPrize4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		KantoPrize5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
+		KantoPrize6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
 		// To change body of generated methods, choose Tools | Templates.
 	}
 
@@ -2496,14 +2496,14 @@ public class PokeboardUI extends JFrame
 
 	private void setIcon()
 	{
-		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/pokeball.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/my/pokeboard/images/pokeball.png")));
 	}
 
 	private void TogglePrize(JLabel Prize)
 	{
 		if (Prize.getIcon() == null)
 		{
-			Prize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackSmall.png")));
+			Prize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/pokeboard/images/BackSmall.png")));
 		} else
 		{
 			Prize.setIcon(null);
