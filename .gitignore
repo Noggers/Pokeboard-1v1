@@ -10,7 +10,8 @@
 *.ear
 
 # We hide the image resources we need for the board to load all the images
-/*/src/images/*
+*.jpg
+*.png
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -29,11 +30,12 @@ manifest.mf
 #Eclipse Stuff:
 .classpath
 .project
-/bin/
+bin/
 
 #Intellij Stuff:
-/.idea/
+.idea/
 *.iml
+out/
 
 #Folder for storing third party Jar Files:
-/lib/
+lib/
