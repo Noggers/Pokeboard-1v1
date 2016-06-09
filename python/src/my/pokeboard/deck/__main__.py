@@ -1,4 +1,4 @@
-from os.path import expanduser
+from os import path
 from DeckConsoleInterface import run_console
 from PokemonCard import PokemonCard
 from DeckManager import DeckManager
@@ -10,7 +10,7 @@ Then, we want to constitute that into a list of cards, and feed it to a DeckMana
 From there on out, we want the console to constantly sit and wait for messages from the user
 """
 
-home = expanduser("~")
+home = path.expanduser("~")
 
 
 def read_card_file(file_path):
@@ -27,7 +27,7 @@ def read_card_file(file_path):
 print "Loading Deck Manager..."
 deck_path = raw_input("Please enter path to deck file (empty: default): ")
 if deck_path == "":
-    deck_path = home + "/Documents/Pokeboard/default.dk"
+    deck_path = path.join(home, "Documents", "Pokeboard", "default.dk")
 print "Loading deck file from " + deck_path
 deck_build = read_card_file(deck_path)
 print "Deck loaded. Showing:"
